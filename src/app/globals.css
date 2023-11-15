@@ -3,25 +3,79 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --vm-primary: #503c3b;
+  --vm-secondary: #edceab;
+  --vm-rounded-md: 100px;
+  --vm-text-lg: 90px;
+  --vm-leading-lg: 96px;
+  --vm-lspacing-lg: -1.82;
+  --vm-text-md: 52px;
+  --vm-leading-md: 58px;
+  --vm-lspacing-md: -1.05px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.vm-h1 {
+  font-size: var(--vm-text-lg);
+  font-weight: bold;
+  line-height: var(--vm-leading-lg);
+  letter-spacing: var(--vm-leading-lg);
+  text-transform: capitalize;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.vm-h1-text {
+  font-size: 85px;
+  font-weight: 600;
+  letter-spacing: -0.0375em;
+  line-height: 1.15;
+}
+
+.vm-h4-text {
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: none;
+  font-style: normal;
+  line-height: 35px;
+  -webkit-text-stroke-color: #000;
+  stroke: #000;
+}
+
+.vm-h2 {
+  font-size: var(--vm-text-md);
+  font-weight: bold;
+  line-height: var(--vm-leading-md);
+  letter-spacing: var(--vm-lspacing-md);
+  text-transform: capitalize;
+}
+
+.vm-bg {
+  background-color: var(--vm-primary);
+}
+
+.vm-logo {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.vm-text-sec {
+  color: var(--vm-secondary);
+}
+
+.vm-link a {
+  color: var(--vm-secondary);
+  font-weight: 500;
+  line-height: 18px;
+  font-size: 16px;
+}
+
+.vm-link a.vm-link-active {
+  color: #fff !important;
+}
+
+.vm-hover:hover {
+  background-color: rgba(237, 206, 171, 0.2);
+  transition: all 0.3s ease;
+}
+
+.vm-no-capitalise {
+  text-transform: unset !important;
 }
