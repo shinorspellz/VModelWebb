@@ -49,18 +49,21 @@ const VMHeader = () => {
     <header className="">
       <section className="px-[1%] py-0">
         <div className="max-w-[1600px] min-h-[10vh] items-center flex mx-auto relative">
-          <div className="w-1/3">
+          <div className="w-auto md:w-1/3">
             <div className="flex items-center content-center p-[10px] w-full flex-wrap ">
               <div className="text-left flex items-center justify-center w-[68px] max-w-full">
                 <div>
-                  <Link href="/" className="inline-block">
+                  <Link href="/" className="hidden md:inline-block">
                     <VMLogo isDark={true} width={53} height={53} />
+                  </Link>
+                  <Link href="/" className="md:hidden">
+                    <VMLogo isDark={true} width={40} height={40} />
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="w-[60%] md:w-1/3">
             <div className="flex items-center content-center p-[10px] w-full flex-wrap ">
               <div className="text-center w-full ">
                 <Link href="">
@@ -73,7 +76,7 @@ const VMHeader = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/3 min-h-[64px] flex">
+          <div className="vm-hidden-md w-1/3 min-h-[64px] flex">
             <div className="flex items-center content-center p-[10px] w-full flex-wrap ">
               <div className="flex flex-col w-full">
                 <nav className="flex">

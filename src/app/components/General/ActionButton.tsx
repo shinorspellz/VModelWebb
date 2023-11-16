@@ -8,7 +8,7 @@ const ActionButton = ({ icon, title, url }: ActionButton) => {
   return (
     <Link
       href={url}
-      className="vm-text-sec vm-hover"
+      className="vm-text-sec vm-hover vm-btn-link"
       style={{
         border: "2px solid var(--vm-secondary)",
         borderRadius: "var(--vm-rounded-md)",

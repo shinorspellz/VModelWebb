@@ -1,11 +1,15 @@
 import VMBanner from "./components/Banner";
-import VModelWhat from "./components/Home/VModelWhat";
+import { VBannCT, VFeature, VFooter, VWhat, VWorks } from "./components/Home";
 
 export default function Home() {
   return (
     <>
       <VMBanner />
-      <VModelWhat />
+      <VWhat />
+      <VFeature />
+      <VWorks />
+      <VBannCT />
+      <VFooter />
     </>
   );
 }

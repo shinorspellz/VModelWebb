@@ -18,7 +18,7 @@ export const VMLogo = ({
           alt="VModel Logo"
           priority
           src={`/assets/images/logo/${
-            isDark ? "vmodel-logo-light.svg" : "vmodel-logo.svg"
+            isDark ? "vmodel-logo-full.png" : "vmodel-logo-full.png"
           }`}
           width={width}
           height={height}
