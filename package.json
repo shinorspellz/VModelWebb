@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
     "html-react-parser": "^5.0.6",
     "iconsax-react": "^0.0.8",
     "is-mobile": "^4.0.0",
@@ -17,6 +20,7 @@
     "react": "^18",
     "react-awesome-reveal": "^4.2.7",
     "react-dom": "^18",
+    "react-player": "^2.13.0",
     "react-scroll-parallax": "^3.4.3",
     "react-type-animation": "^3.2.0"
   },

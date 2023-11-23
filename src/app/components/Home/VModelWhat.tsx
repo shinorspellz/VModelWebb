@@ -118,7 +118,7 @@ const VModelWhat = () => {
                   </div>
                   <div className="w-full md:w-1/3 relative order-3 md:order-2">
                     <div
-                      className="p-[10px] flex relative w-full flex-wrap"
+                      className="p-[10px] vm-no-bxshadow flex relative w-full flex-wrap"
                       style={{
                         alignContent: "flex-start",
                       }}

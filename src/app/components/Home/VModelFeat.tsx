@@ -135,7 +135,7 @@ const VModelFeat = () => {
                 >
                   <div className="mb-5 w-full text-center ">
                     <div className="mt-6 md:mt-[120px]">
-                      <div className="w-[308px] h-[626px]">
+                      <div className="w-[308px] vm-no-bxshadow h-[626px]">
                         <Fade>
                           <Image
                             alt=""

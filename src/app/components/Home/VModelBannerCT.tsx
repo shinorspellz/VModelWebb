@@ -44,7 +44,7 @@ const VModelBannerCT = () => {
         </div>
 
         <div className="absolute left-[23px] z-[666] w-[140px] h-[165px] rounded-md top-[255px]">
-          <div className="relative w-full h-full">
+          <div className="relative vm-no-bxshadow w-full h-full">
             <Parallax translateX={["50px", "-120px"]} easing="easeInQuad">
               <Image
                 alt=""

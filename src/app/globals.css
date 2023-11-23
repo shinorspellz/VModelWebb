@@ -29,6 +29,11 @@ body {
   text-transform: capitalize;
 }
 
+.vm-h1-lg {
+  font-size: 120px;
+  color: var(--vm-secondary);
+}
+
 .vm-h1-md {
   font-size: 80px;
   line-height: 85px;
@@ -80,6 +85,18 @@ body {
   background-color: var(--vm-primary);
 }
 
+.vm-btn-hover:hover{
+  background: rgb(80 60 59 / 86%) !important;
+}
+
+.vm-bg-sec {
+  background-color: var(--vm-secondary);
+}
+
+.lht-md {
+  line-height: 45px !important;
+}
+
 .vm-logo {
   font-weight: 700;
   font-style: normal;
@@ -87,6 +104,10 @@ body {
 
 .vm-text-sec {
   color: var(--vm-secondary);
+}
+
+.vm-text-primary {
+  color: var(--vm-primary);
 }
 
 .vm-link a {
@@ -186,6 +207,9 @@ body {
 }
 
 @media (max-width: 1024px) {
+  .vm-display-md {
+    display: block !important;
+  }
   .vm-hidden-md {
     display: none !important;
   }
@@ -230,6 +254,16 @@ body {
     font-size: 32px !important;
   }
 
+  .vm-no-bxshadow img {
+    box-shadow: -11px 12px 25px 0px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .socialMedia li {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
   .vm-h1-text,
   .vm-anim-text {
     font-size: 36px !important;
@@ -252,5 +286,15 @@ body {
     top: 110px !important;
     right: 30% !important;
     transform: translateX(-40%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .vm-container {
+    max-width: 1200px;
+  }
+
+  .vm-drawer {
+    display: none !important;
   }
 }

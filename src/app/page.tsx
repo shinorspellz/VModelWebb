@@ -1,5 +1,5 @@
 import VMBanner from "./components/Banner";
-import { VBannCT, VFeature, VFooter, VWhat, VWorks } from "./components/Home";
+import { VBannCT, VFeature, VFooterN, VWhat, VWorks } from "./components/Home";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <VFeature />
       <VWorks />
       <VBannCT />
-      <VFooter />
+      <VFooterN />
     </>
   );
 }

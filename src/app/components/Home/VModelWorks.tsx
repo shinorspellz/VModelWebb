@@ -3,7 +3,7 @@
 import React from "react";
 import VMContainer from "../Layout/VMContainer";
 import Image from "next/image";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 import { dm_sans } from "@/utils/fonts";
 
 const WorkList = ({
@@ -15,28 +15,30 @@ const WorkList = ({
 }) => {
   return (
     <div className="w-full md:w-1/2 mb-[20px] md:mb-0">
-      <div className="flex md:flex-wrap items-center w-full relative content-center ">
-        <div className="w-[30px] md:w-auto max-w-full">
-          <div className="vm-circle-numb   rounded-full">
-            <span className="flex justify-center w-[30px] h-[30px] items-center">
-              <span
-                className={`flex-grow text-sm md:text-lg order-10 inline-block ${dm_sans.className}`}
-              >
-                {counter}
+      <Slide direction="left" triggerOnce>
+        <div className="flex md:flex-wrap items-center w-full relative content-center ">
+          <div className="w-[30px] md:w-auto max-w-full">
+            <div className="vm-circle-numb   rounded-full">
+              <span className="flex justify-center w-[30px] h-[30px] items-center">
+                <span
+                  className={`flex-grow text-sm md:text-lg order-10 inline-block ${dm_sans.className}`}
+                >
+                  {counter}
+                </span>
               </span>
-            </span>
+            </div>
+          </div>
+          <div className="w-full md:w-auto max-w-full">
+            <div className="ml-[25px]">
+              <h3
+                className={`vm-h3-ext vm-text-sec vm-no-bold vm-no-br font-normal md:font-medium ${dm_sans.className}`}
+              >
+                {title}
+              </h3>
+            </div>
           </div>
         </div>
-        <div className="w-full md:w-auto max-w-full">
-          <div className="ml-[25px]">
-            <h3
-              className={`vm-h3-ext vm-text-sec vm-no-bold vm-no-br font-normal md:font-medium ${dm_sans.className}`}
-            >
-              {title}
-            </h3>
-          </div>
-        </div>
-      </div>
+      </Slide>
     </div>
   );
 };
@@ -47,7 +49,7 @@ const VModelWorks = () => {
       <div className="flex flex-col md:flex-row mx-auto md:items-center w-full">
         <div className="hidden  md:w-1/2 md:flex md:items-end justify-center">
           <div className="w-auto relative">
-            <div className="w-[350px] h-[709px]">
+            <div className="w-[350px] vm-no-bxshadow h-[709px]">
               <Fade>
                 <Image
                   alt=""
