@@ -19,7 +19,7 @@ const VModelFeat = () => {
     } else {
       setIsReady(true);
     }
-  }, [mobile, setisMobileView]);
+  }, [mobile]);
   const listItem = [
     {
       featID: 0,

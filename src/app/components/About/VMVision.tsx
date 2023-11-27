@@ -6,7 +6,7 @@ const VMVision = () => {
   return (
     <>
       <VMContainer autoHeight={false} bgSec={false}>
-        <div className="flex flex-col w-full mx-auto md:items-center md:justify-center h-screen relative">
+        <div className="flex flex-col w-full mx-auto md:items-center md:justify-center md:h-screen relative">
           <div className="w-full pr-[10%]">
             <h2
               className={`text-sm leading-none vm-text-sec opacity-50 font-semibold mb-4 text-teal ${dm_sans.className}`}

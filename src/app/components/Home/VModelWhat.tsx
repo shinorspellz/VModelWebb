@@ -70,7 +70,7 @@ const VModelWhat = () => {
     } else {
       setIsReady(true);
     }
-  }, [mobile, setisMobileView]);
+  }, [mobile]);
   return (
     <VMContainer otherClass="md:pb-[80px]">
       <div className="w-full">
@@ -118,7 +118,7 @@ const VModelWhat = () => {
                   </div>
                   <div className="w-full md:w-1/3 relative order-3 md:order-2">
                     <div
-                      className="p-[10px] vm-no-bxshadow flex relative w-full flex-wrap"
+                      className="p-[10px] vm-no-bxshadow flex relative w-full flex-wrap mx-auto"
                       style={{
                         alignContent: "flex-start",
                       }}

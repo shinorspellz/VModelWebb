@@ -6,7 +6,7 @@ import VMHeader from "../components/Layout/VMHeader";
 
 const AboutPage = () => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <VMContainer noWrapper={true} autoHeight={true}>
         <VMHeader />
       </VMContainer>
@@ -16,7 +16,7 @@ const AboutPage = () => {
       <VMMIssion />
       <VMVision />
       <VFooterN noPadd={true} />
-    </>
+    </div>
   );
 };
 

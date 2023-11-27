@@ -75,14 +75,9 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
           isExternal: false,
         },
         {
-          title: "Privacy policy",
-          url: "",
-          isExternal: false,
-        },
-        {
-          title: "Contact Us",
-          url: "",
-          isExternal: false,
+          title: "Vell Magazine",
+          url: "https://vell-magazine.vercel.app/",
+          isExternal: true,
         },
       ],
     },
@@ -183,10 +178,10 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
         <section
           className={`${!noPadd ? "pt-[2%]" : ""} pb-[6%] vm-bg contain`}
         >
-          <div className="lg:py-[100px] pb-6 lg:pb-0 flex mb-9 relative">
-            <div className="w-[45%] flex flex-col justify-between pr-[10%]">
+          <div className="md:lg:py-[100px] pt-9 md:pt-0 md:pb-6 lg:pb-0 flex flex-col md:flex-row md:mb-9 relative">
+            <div className="w-full md:w-[45%] flex flex-col justify-between md:pr-[10%]">
               <div className="space-y-3">
-                <div className="-ml-2 mb-5">
+                <div className="flex items-center justify-center md:block -ml-2 mb-5">
                   <VMLogo
                     isFull={true}
                     isDark={true}
@@ -202,7 +197,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                   talent, fostering meaningful collaborations that know no
                   limits.
                 </div>
-                <div className="w-full mt-5 pr-[3%]">
+                <div className="w-full mt-9 md:mt-5 md:pr-[3%]">
                   <div>
                     <h5
                       className={`vm-text-sec font-medium opacity-40  text-[17px] mb-2 ${dm_sans.className}`}
@@ -212,14 +207,14 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                   </div>
                   <div className="relative">
                     <input
-                      className="w-full h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
+                      className="w-full h-[60px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
                       style={{
                         background: "rgb(237 206 171 / 50%)",
                       }}
                       placeholder="Enter your email"
                     />
                     <button
-                      className="absolute right-0 top-0 h-[45px] transition-all vm-btn-hover duration-[.3s] px-5 rounded-[60px] vm-text-sec"
+                      className="absolute right-0 top-0 h-[60px] md:h-[45px] transition-all vm-btn-hover duration-[.3s] px-5 rounded-[60px] vm-text-sec"
                       style={{
                         background: "rgb(80 60 59 / 72%)",
                       }}
@@ -229,7 +224,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                   </div>
                 </div>
               </div>
-              <div className="w-[55%]">
+              <div className="w-full mt-6 md:mt-0 md:w-[55%]">
                 <div className="relative m-auto w-full">
                   <ul className="flex justify-between text-center lg:text-right w-full socialMedia">
                     <SocialHandle
@@ -330,8 +325,8 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                 </div>
               </div>
             </div>
-            <div className="w-[60%]">
-              <div className="grid grid-cols-3 gap-x-4">
+            <div className="w-full mt-9 md:mt-0 md:w-[60%]">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-y-0 md:gap-x-4">
                 {FootLink.map((footItem, index) => (
                   <div key={index}>
                     <h4

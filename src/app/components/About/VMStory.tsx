@@ -11,18 +11,18 @@ const VMStory = () => {
   return (
     <>
       <VMContainer>
-        <div className="flex flex-col md:flex-row w-full mx-auto md:items-center pt-[80px]">
-          <div className="w-[50%]">
+        <div className="flex flex-col md:flex-row w-full mx-auto md:items-center md:pt-[80px]">
+          <div className="w-full md:w-[50%] mt-4 md:mt-0 order-2 md:order-1">
             <div
               className="vm-no-p-right flex md:items-center flex-wrap w-full md:content-center "
               style={{
                 padding: "0% 5% 0% 0%",
               }}
             >
-              <div className="pb-5 w-full space-y-7">
+              <div className="pb-5 relative w-full mt-3 md:mt-0 md:space-y-7">
                 <Fade triggerOnce delay={0}>
                   <h1
-                    className={`vm-h1 vm-text-sec font-extrabold ${dm_sans.className}`}
+                    className={`vm-h1 pb-4 md:pb-0 vm-text-sec font-extrabold ${dm_sans.className}`}
                   >
                     Our Story
                   </h1>
@@ -31,7 +31,7 @@ const VMStory = () => {
                 <div className="space-y-7">
                   <Fade triggerOnce delay={10}>
                     <p
-                      className={`text-lg vm-text-sec text-justify  ${dm_sans.className}`}
+                      className={`text-lg vm-text-sec md:text-justify  ${dm_sans.className}`}
                     >
                       We started VModel as a team of passionate individuals who
                       shared a common frustration with the traditional model of
@@ -44,7 +44,7 @@ const VMStory = () => {
                   </Fade>
                   <Fade triggerOnce delay={20}>
                     <p
-                      className={`text-lg vm-text-sec text-justify  ${dm_sans.className}`}
+                      className={`text-lg vm-text-sec md:text-justify  ${dm_sans.className}`}
                     >
                       Inspired by our own experiences and fueled by a shared
                       vision to transform the creative landscape, we embarked on
@@ -58,22 +58,22 @@ const VMStory = () => {
               </div>
             </div>
           </div>
-          <div className="w-[50%]">
-            <div className="pl-[6rem] relative h-[550px]">
-              <div className="w-[420px] overflow-hidden h-[550px] top-0  rounded-md z-20 absolute">
+          <div className="w-full order-1 md:order-2 relative md:w-[50%]">
+            <div className="md:pl-[6rem] relative h-[400px] md:h-[550px]">
+              <div className="w-full md:w-[420px] overflow-hidden h-[400px] md:h-[550px] top-0  rounded-md z-20 md:absolute">
                 <Image
                   alt=""
                   src="/assets/images/vmodel-app-ui/vm-phone-15.jpg"
                   fill
-                  // width={420}
-                  // height={550}
                   objectFit="cover"
-                  // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 420px, 550px"
+                  style={{
+                    borderRadius: "6px",
+                  }}
                 />
               </div>
               <Parallax rotate={[0, 2]} easing="easeInQuad">
                 <div
-                  className="w-[420px] h-[550px] overflow-hidden top-0  rounded-md z-10 absolute"
+                  className="w-[420px] hidden md:block h-[550px] overflow-hidden top-0  rounded-md z-10 absolute"
                   style={{
                     transform: "rotateZ(7deg) translate(10px, 20px) scale(1)",
                   }}

@@ -21,7 +21,7 @@ const VMContainer = ({
     >
       {!noWrapper ? (
         <section
-          className={`px-[24px] md:px-0 max-w-[1140px] pt-[10%] md:pt-0 flex md:items-center mx-auto relative ${otherClass}`}
+          className={`px-[24px] md:px-0 max-w-[1140px] pt-12 md:pt-0 flex md:items-center mx-auto relative ${otherClass}`}
         >
           {children}
         </section>

@@ -6,6 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import styles from "./SidebarDrawer.module.css";
 import { VMLogo } from "../General/VMLogo";
 import SocialHandle from "../General/SocialHandle";
+import Link from "next/link";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -50,20 +51,24 @@ const SidebarDrawer = (props: drawProps) => {
     {
       itemid: 1,
       itemTitle: "About Us",
-      itemLink: "/",
+      itemLink: "/about",
       itemType: 0,
+      isExternal: false,
     },
-    // {
-    //   itemid: 2,
-    //   itemTitle: "Mission",
-    //   itemLink: "/",
-    //   itemType: 0,
-    // },
+
     {
       itemid: 3,
       itemTitle: "Help Center",
       itemLink: "/",
       itemType: 0,
+      isExternal: false,
+    },
+    {
+      itemid: 2,
+      itemTitle: "For Employees",
+      itemLink: "https://vmodel-steel.vercel.app/",
+      itemType: 0,
+      isExternal: false,
     },
   ];
 
@@ -104,9 +109,10 @@ const SidebarDrawer = (props: drawProps) => {
               <div className="h-[5px]"></div>
               <ul className="p-0 m-0 flex flex-col flex-grow max-w-full">
                 {ListItems.map((litem, index) => (
-                  <a
+                  <Link
                     key={index}
                     href={litem.itemLink}
+                    target={`${litem?.isExternal ? "_blank" : "_self"}`}
                     className={[
                       "relative min-h-[72px] flex flex-row items-center sbItem",
                       styles.sbarListItem,
@@ -130,7 +136,7 @@ const SidebarDrawer = (props: drawProps) => {
                     >
                       <path d="M14.481 12l-7.14 6.247a1 1 0 001.318 1.506l8-7a1 1 0 000-1.506l-8-7a1 1 0 10-1.317 1.506L14.482 12z"></path>
                     </svg>
-                  </a>
+                  </Link>
                 ))}
               </ul>
               <div className={styles.separator}></div>

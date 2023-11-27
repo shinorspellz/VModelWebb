@@ -62,13 +62,13 @@ const VMHeader = () => {
       id: 2,
       url: "https://vmodel-faq.vercel.app/",
       linkText: "Help Center",
-      externalLinks: true,
+      externalLinks: false,
     },
     {
       id: 1,
       url: "https://vmodel-steel.vercel.app/",
       linkText: "For Employees",
-      externalLinks: true,
+      externalLinks: false,
     },
   ];
 
@@ -85,11 +85,16 @@ const VMHeader = () => {
   return (
     <>
       <header className="">
-        <section className="px-[1%] py-0">
-          <div className="max-w-[1600px] py-4 min-h-[10vh]  items-center justify-between flex mx-auto relative">
+        <section className="px-0 md:px-[1%] py-0">
+          <div className="max-w-[1600px] pl-3 md:pl-0 py-4 min-h-[10vh]  items-center justify-between flex mx-auto relative">
             <Link href="/">
               <div className="flex  items-center gap-3 md:gap-6">
-                <VMLogo isDark={true} width={65} height={64} />
+                <VMLogo
+                  isDark={true}
+                  width={65}
+                  height={64}
+                  className="vm-logo-mobile"
+                />
                 <h1 className="text-2xl md:text-3xl my-3 vm-text-sec font-semibold text-center md:text-left ">
                   VModel
                 </h1>
@@ -122,7 +127,7 @@ const VMHeader = () => {
                 </div>
               </div>
             </div> */}
-            <div className="w-[84px] md:w-1/3 min-h-[64px] flex">
+            <div className="w-[84px] vm-w-tab md:w-1/3 min-h-[64px] flex">
               <div className="vm-hidden-md flex items-center content-center p-[10px] w-full flex-wrap ">
                 <div className="flex flex-col w-full">
                   <nav className="flex">
