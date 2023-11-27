@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import VMContainer from "../Layout/VMContainer";
 import ReactPlayer from "react-player";
 import { Fade } from "react-awesome-reveal";
 import { Parallax } from "react-scroll-parallax";
+import { Pause } from "iconsax-react";
 
 const VMPlayer = () => {
   const mobile = require("is-mobile");
   const [isMobileView, setisMobileView] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useLayoutEffect(() => {
     setIsReady(false);
@@ -20,6 +22,20 @@ const VMPlayer = () => {
       setIsReady(true);
     }
   }, [mobile]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsPlaying(true);
+    }, 3000);
+  }, []);
+
+  const _handlePlay = () => {
+    setIsPlaying(!isPlaying);
+    // setTimeout(() => {
+    //   setIsPlaying(!isPlaying);
+    // }, 300);
+  };
+
   return (
     <>
       {isReady && (
@@ -49,11 +65,11 @@ const VMPlayer = () => {
                       className="react-player"
                       objectFit="cover"
                       borderRadius="30px"
-                      playing={true}
+                      playing={isPlaying}
                       muted={true}
                     />
                   </div>
-                  <div
+                  {/* <div
                     className="absolute left-[50%] w-[50px] h-[50px] md:w-[100px] md:h-[100px] z-40 top-[50%] rounded-full"
                     style={{
                       transform: "translate(-50%, -50%)",
@@ -65,6 +81,25 @@ const VMPlayer = () => {
                       aria-label="Play Muck N Brass video"
                     >
                       <div className="w-0 h-0 border-y-[12px] border-y-transparent border-l-[20px] border-l-white ml-1"></div>
+                    </button>
+                  </div> */}
+                  <div
+                    className="absolute right-[2%] md:right-[3%] w-[50px] h-[50px] md:w-[100px] md:h-[100px] z-40 bottom-[2%] md:bottom-[7%] rounded-full"
+                    // style={{
+                    //   transform: "translate(-50%, -50%)",
+                    // }}
+                  >
+                    <button
+                      className=" h-8 w-8 md:h-16 md:w-16 flex z-20 rounded-full border-white border place-items-center justify-center absolute -translate-x-1/2 left-1/2 -translate-y-1/2 top-1/2"
+                      type="button"
+                      onClick={_handlePlay}
+                      aria-label="Play Muck N Brass video"
+                    >
+                      {isPlaying ? (
+                        <div className="w-0 h-0 border-y-[12px] scale-50 md:scale-95 border-y-transparent border-l-[20px] border-l-white ml-1"></div>
+                      ) : (
+                        <Pause size="32" color="#fff" variant="Bold" />
+                      )}
                     </button>
                   </div>
                 </div>

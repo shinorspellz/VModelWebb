@@ -255,6 +255,11 @@ body {
     height: 50px !important;
   }
 
+  .vm-btn-link {
+    padding: 8px 12px 8px 12px !important;
+    font-size: 14px !important;
+  }
+
   .lht-md {
     line-height: normal !important;
   }
@@ -314,5 +319,17 @@ body {
 @media (min-width: 996px) and (max-width: 1290px) {
   .vm-w-tab {
     width: 40% !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .vm-btn-link {
+    padding: 8px 15px 8px 15px !important;
+
+    font-weight: normal !important;
+  }
+
+  .vm-btn-link span {
+    font-size: 14px !important;
   }
 }

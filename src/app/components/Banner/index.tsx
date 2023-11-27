@@ -16,8 +16,8 @@ const VMBanner = () => {
             <div className="flex items-end content-center flex-wrap w-full relative">
               <div className="mb-5 w-full">
                 <div className="text-left">
-                  <Fade triggerOnce>
-                    <h1 className="min-h-[139px] md:min-h-auto vm-h1-text vm-text-sec">
+                  <Fade delay={0} triggerOnce>
+                    <h1 className="md:min-h-[139px] md:min-h-auto vm-h1-text vm-text-sec">
                       Discover, Connect, and Collaborate with{" "}
                       <TypeAnimation
                         sequence={[
@@ -54,12 +54,14 @@ const VMBanner = () => {
                   </h4>
                 </AttentionSeeker>
               </div>
-              <Fade damping={0.6} delay={2} triggerOnce>
-                <div className="hidden md:grid grid-cols-2 gap-x-4 mt-6">
-                  <ActionButton title="Google Play" icon="google" url="/" />
-                  <ActionButton title="Apple Store" icon="apple" url="/" />
-                </div>
-              </Fade>
+              <div>
+                <Fade damping={0.6} delay={2} triggerOnce>
+                  <div className="grid grid-cols-2 w-full gap-x-4 mt-6">
+                    <ActionButton title="Google Play" icon="google" url="/" />
+                    <ActionButton title="Apple Store" icon="apple" url="/" />
+                  </div>
+                </Fade>
+              </div>
             </div>
           </div>
           <div className="w-full pt-[10%] md:pt-0 md:w-[48%]">

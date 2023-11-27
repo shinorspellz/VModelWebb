@@ -7,6 +7,8 @@ import styles from "./SidebarDrawer.module.css";
 import { VMLogo } from "../General/VMLogo";
 import SocialHandle from "../General/SocialHandle";
 import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
+import ActionButton from "../General/ActionButton";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -139,7 +141,7 @@ const SidebarDrawer = (props: drawProps) => {
                   </Link>
                 ))}
               </ul>
-              <div className={styles.separator}></div>
+              {/* <div className={styles.separator}></div>
               <ul className="p-0 m-0 flex flex-col flex-grow max-w-full">
                 <a
                   className={[
@@ -172,11 +174,27 @@ const SidebarDrawer = (props: drawProps) => {
                     />
                   </svg>
                 </a>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
         <div className="absolute bottom-0 w-full min-h-[70px] pb-8 items-center justify-center text-center">
+          <div className="flex-col flex flex-grow text-center  min-w-0 ">
+            <p
+              className="m-0 text-[18px] font-bold leading-6"
+              style={{
+                color: "rgba(255, 255, 255,.7)",
+              }}
+            >
+              Download the VModel app
+            </p>
+          </div>
+          <div className="px-[5%] mb-12">
+            <div className="flex items-center space-x-4 w-full justify-center mt-6">
+              <ActionButton title="Google Play" icon="google" url="/" />
+              <ActionButton title="Apple Store" icon="apple" url="/" />
+            </div>
+          </div>
           <div className="relative m-auto w-full">
             <ul className="flex justify-between text-center lg:text-right w-full socialMedia">
               <SocialHandle

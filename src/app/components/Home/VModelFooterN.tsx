@@ -178,7 +178,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
         <section
           className={`${!noPadd ? "pt-[2%]" : ""} pb-[6%] vm-bg contain`}
         >
-          <div className="md:lg:py-[100px] pt-9 md:pt-0 md:pb-6 lg:pb-0 flex flex-col md:flex-row md:mb-9 relative">
+          <div className="md:lg:py-[100px] md:pt-0 md:pb-6 lg:pb-0 flex flex-col md:flex-row md:mb-9 relative">
             <div className="w-full md:w-[45%] flex flex-col justify-between md:pr-[10%]">
               <div className="space-y-3">
                 <div className="flex items-center justify-center md:block -ml-2 mb-5">
@@ -208,6 +208,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                   <div className="relative">
                     <input
                       className="w-full h-[60px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
+                      type="email"
                       style={{
                         background: "rgb(237 206 171 / 50%)",
                       }}
