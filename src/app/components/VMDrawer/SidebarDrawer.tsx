@@ -61,7 +61,7 @@ const SidebarDrawer = (props: drawProps) => {
     {
       itemid: 3,
       itemTitle: "Help Center",
-      itemLink: "/",
+      itemLink: "/help-center",
       itemType: 0,
       isExternal: false,
     },
