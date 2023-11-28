@@ -65,6 +65,12 @@ const VMHeader = () => {
       externalLinks: false,
     },
     {
+      id: 4,
+      url: "/faq",
+      linkText: "FAQ",
+      externalLinks: false,
+    },
+    {
       id: 1,
       url: "https://vmodel-steel.vercel.app/",
       linkText: "For Employees",
