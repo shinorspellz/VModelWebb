@@ -48,17 +48,17 @@ const VMPlayer = () => {
                   <div className="absolute left-3 md:left-0 bottom-2 md:bottom-0 z-30">
                     <div className="self-start xl:p-16 md:p-12">
                       <div className="font-bold text-white text-lg md:text-3xl md:mb-3 richtext">
-                        Janet Chris
+                        Welcome
                       </div>
                       <p className="text-base md:text-lg richtext text-white">
-                        Food, Influencer
+                        Vmodel App
                       </p>
                     </div>
                   </div>
 
                   <div className="md:absolute z-20 w-full rounded-md overflow-hidden h-full">
                     <ReactPlayer
-                      url="/assets/videos/vm-video-1.mp4"
+                      url=" https://www.youtube.com/watch?v=7-YJ-1sG3sw&ab_channel=Vmodel"
                       autoPlay
                       width={"100%"}
                       height={"100%"}

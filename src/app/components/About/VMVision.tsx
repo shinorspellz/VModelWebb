@@ -1,6 +1,7 @@
 import React from "react";
 import VMContainer from "../Layout/VMContainer";
 import { dm_sans } from "@/utils/fonts";
+import Image from "next/image";
 
 const VMVision = () => {
   return (
@@ -32,8 +33,15 @@ const VMVision = () => {
           </div>
           <div>
             <div className="grid lg:grid-cols-3 gap-10 mt-16">
-              <div>
-                <span className="inline-block mb-4 p-1 lg:p-2 leading-[1] bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full"></span>
+              <div >
+              <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full ">
+                      <Image
+                        src="/assets/images/icons/broken-link-icon.svg"
+                        alt="brokenlink icon"
+                        width={50} // Set the width of your image
+                        height={50} // Set the height of your image
+                         />
+                </span>
                 <h3 className="text-[1.375rem] leading-[1.625rem] font-bold pb-4">
                   <div className="richtext vm-text-sec opacity-70">
                     Break free
@@ -48,7 +56,14 @@ const VMVision = () => {
                 </p>
               </div>
               <div>
-                <span className="inline-block mb-4 p-1 lg:p-2 leading-[1] bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full"></span>
+              <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full ">
+                <Image
+                  src="/assets/images/icons/globe-network-icon.svg"
+                  alt="globe network icon"
+                  width={50} // Set the width of your image
+                  height={50} // Set the height of your image
+                 />
+                </span>
                 <h3 className="text-[1.375rem] leading-[1.625rem] font-bold pb-4">
                   <div className="richtext vm-text-sec opacity-70">
                     Connect creatively
@@ -64,7 +79,14 @@ const VMVision = () => {
                 </p>
               </div>
               <div>
-                <span className="inline-block mb-4 p-1 lg:p-2 leading-[1] bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full"></span>
+              <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full ">
+                <Image
+                  src="/assets/images/icons/binoculars-icon.svg"
+                  alt="binoculars-icon"
+                  width={50}
+                  height={50}
+                />
+                </span>
                 <h3 className="text-[1.375rem] leading-[1.625rem] font-bold pb-4">
                   <div className="richtext vm-text-sec opacity-70">
                     Discover talent
