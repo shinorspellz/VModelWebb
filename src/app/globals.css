@@ -356,3 +356,9 @@ body {
     font-size: 14px !important;
   }
 }
+
+@media (max-width: 435px) {
+  .pr-sm {
+    padding-right: 20px !important;
+  }
+}
