@@ -90,11 +90,31 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
       ],
     },
     {
-      mainTitle: "For Businesses",
+      mainTitle: "Help Centre",
       subLink: [
+        // {
+        //   title: "FAQ",
+        //   url: "https://vmodel-faq.vercel.app/",
+        //   isExternal: false,
+        // },
         {
-          title: "FAQ",
-          url: "https://vmodel-faq.vercel.app/",
+          title: "Businesses",
+          url: "",
+          isExternal: false,
+        },
+        {
+          title: "Creators",
+          url: "",
+          isExternal: false,
+        },
+        {
+          title: "Partnerships",
+          url: "",
+          isExternal: false,
+        },
+        {
+          title: "Careers",
+          url: "",
           isExternal: false,
         },
         {
@@ -104,11 +124,6 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
         },
         {
           title: "Create an ad on VModel",
-          url: "",
-          isExternal: false,
-        },
-        {
-          title: "Spotlight",
           url: "",
           isExternal: false,
         },
@@ -127,15 +142,10 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
           url: "",
           isExternal: false,
         },
-        {
-          title: "Invite and Save",
-          url: "",
-          isExternal: false,
-        },
       ],
     },
     {
-      mainTitle: "For Creatives",
+      mainTitle: "Creatives/Businesses",
       subLink: [
         {
           title: "FAQ",
@@ -377,7 +387,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                       key={index}
                       // expanded={index == isOpen ? true : false}
                       // onChange={() => _handleChange(index)}
-                      defaultExpanded={index == 0 ? true : false} 
+                      defaultExpanded={index == 0 ? true : false}
                     >
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
