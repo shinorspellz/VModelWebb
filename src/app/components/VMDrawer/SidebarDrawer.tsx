@@ -66,6 +66,13 @@ const SidebarDrawer = (props: drawProps) => {
       isExternal: false,
     },
     {
+      itemid: 4,
+      itemTitle: "FAQ",
+      itemLink: "/faq",
+      itemType: 0,
+      isExternal: false,
+    },
+    {
       itemid: 2,
       itemTitle: "For Employees",
       itemLink: "https://vmodel-steel.vercel.app/",
