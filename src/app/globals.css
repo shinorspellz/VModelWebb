@@ -200,6 +200,16 @@ body {
   color: #fff;
 }
 
+.isPlaying {
+  border-color: var(--vm-primary) !important;
+  background-color: rgba(79, 60, 59, 0.5);
+  border-width: 0.2px !important;
+}
+
+.isPlaying.mob-svg svg path {
+  fill: var(--vm-secondary) !important;
+}
+
 .socialMedia li {
   text-align: left !important;
   align-items: flex-start !important;
@@ -250,6 +260,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  .mob-svg svg {
+    transform: scale(0.6) !important;
+  }
   .vm-accord .MuiPaper-elevation {
     background-color: #5c4948 !important;
     box-shadow: none !important;
