@@ -60,7 +60,7 @@ const VMHeader = () => {
     },
     {
       id: 2,
-      url: "https://vmodel-faq.vercel.app/",
+      url: "/help-center",
       linkText: "Help Center",
       externalLinks: false,
     },
