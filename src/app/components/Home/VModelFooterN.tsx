@@ -1,11 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { VMLogo } from "../General/VMLogo";
 import VMContainer from "../Layout/VMContainer";
 import Link from "next/link";
 import { dm_sans } from "@/utils/fonts";
 import SocialHandle from "../General/SocialHandle";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const FootListItem = ({
   title,
@@ -40,6 +45,9 @@ const FootListItem = ({
 };
 
 const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
+  const [isOpen, setisOpen] = useState(0);
+  const mobile = require("is-mobile");
+  const [isMobileView, setisMobileView] = useState(false);
   const FootLink = [
     {
       mainTitle: "VModel",
@@ -172,6 +180,17 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
       ],
     },
   ];
+
+  useEffect(() => {
+    if (mobile()) {
+      setisMobileView(true);
+    }
+  }, [mobile]);
+
+  const _handleChange = (index: number) => {
+    console.log(index);
+  };
+
   return (
     <>
       <VMContainer autoHeight={true} bgSec={false}>
@@ -327,29 +346,64 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
               </div>
             </div>
             <div className="w-full mt-9 md:mt-0 md:w-[60%]">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-y-0 md:gap-x-4">
-                {FootLink.map((footItem, index) => (
-                  <div key={index}>
-                    <h4
-                      className={`font-bold text-lg vm-text-sec mb-6  ${dm_sans.className}`}
-                    >
-                      {footItem?.mainTitle}
-                    </h4>
-                    <div className="space-y-3">
-                      {footItem?.subLink.map((subItem, indexSub) => (
-                        <div key={indexSub}>
-                          <FootListItem
-                            title={subItem?.title}
-                            url={subItem?.url}
-                            isExternal={subItem?.isExternal}
-                            key={indexSub}
-                          />
-                        </div>
-                      ))}
+              {!isMobileView ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-y-0 md:gap-x-4">
+                  {FootLink.map((footItem, index) => (
+                    <div key={index}>
+                      <h4
+                        className={`font-bold text-lg vm-text-sec mb-6  ${dm_sans.className}`}
+                      >
+                        {footItem?.mainTitle}
+                      </h4>
+                      <div className="space-y-3">
+                        {footItem?.subLink.map((subItem, indexSub) => (
+                          <div key={indexSub}>
+                            <FootListItem
+                              title={subItem?.title}
+                              url={subItem?.url}
+                              isExternal={subItem?.isExternal}
+                              key={indexSub}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="vm-accord">
+                  {FootLink.map((footItem, index) => (
+                    <Accordion
+                      key={index}
+                      // expanded={index == isOpen ? true : false}
+                      // onChange={() => _handleChange(index)}
+                      defaultExpanded={index == 0 ? true : false} 
+                    >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>{footItem?.mainTitle}</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <div className="space-y-3">
+                          {footItem?.subLink.map((subItem, indexSub) => (
+                            <div key={indexSub}>
+                              <FootListItem
+                                title={subItem?.title}
+                                url={subItem?.url}
+                                isExternal={subItem?.isExternal}
+                                key={indexSub}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           <div className="pt-9 flex items-center justify-center text-center">

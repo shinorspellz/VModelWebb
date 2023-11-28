@@ -250,6 +250,16 @@ body {
 }
 
 @media (max-width: 768px) {
+  .vm-accord .MuiPaper-elevation {
+    background-color: #5c4948 !important;
+    box-shadow: none !important;
+  }
+
+  .vm-accord .MuiAccordionSummary-content,
+  .vm-accord .MuiSvgIcon-root {
+    color: #d6c2b4 !important;
+  }
+
   .vm-logo-mobile {
     width: 50px !important;
     height: 50px !important;
