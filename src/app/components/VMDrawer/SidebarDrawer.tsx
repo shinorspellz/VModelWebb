@@ -129,7 +129,7 @@ const SidebarDrawer = (props: drawProps) => {
                   >
                     <div className="flex-col flex flex-grow  min-w-0 ">
                       <p
-                        className="m-0 text-[18px] font-bold leading-6"
+                        className="m-0 text-base md:text-[18px] font-normal md:font-bold leading-6"
                         style={{
                           color: "#edceab",
                         }}
@@ -188,7 +188,7 @@ const SidebarDrawer = (props: drawProps) => {
         <div className="absolute bottom-0 w-full min-h-[70px] pb-8 items-center justify-center text-center">
           <div className="flex-col flex flex-grow text-center  min-w-0 ">
             <p
-              className="m-0 text-[18px] font-bold leading-6"
+              className="m-0 text-base md:text-[18px] font-normal md:font-bold leading-6"
               style={{
                 color: "rgba(255, 255, 255,.7)",
               }}
