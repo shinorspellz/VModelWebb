@@ -5,8 +5,17 @@ import { TypeAnimation } from "react-type-animation";
 import ActionButton from "../General/ActionButton";
 import VMContainer from "../Layout/VMContainer";
 import VMHeader from "../Layout/VMHeader";
+import { useEffect, useState } from "react";
 
 const VMBanner = () => {
+  const mobile = require("is-mobile");
+  const [isMobileView, setisMobileView] = useState(false);
+  useEffect(() => {
+    setisMobileView(false);
+    if (mobile()) {
+      setisMobileView(true);
+    }
+  }, [mobile]);
   return (
     <VMContainer noWrapper={true}>
       <VMHeader />
@@ -17,8 +26,9 @@ const VMBanner = () => {
               <div className="mb-5 w-full">
                 <div className="text-left">
                   <Fade delay={0} triggerOnce>
-                    <h1 className="md:min-h-[139px] md:min-h-auto vm-h1-text vm-text-sec">
+                    <h1 className="min-h-[130px] pr-sm md:min-h-auto vm-h1-text vm-text-sec">
                       Discover, Connect, and Collaborate with{" "}
+                      {/* {isMobileView ? <br /> : ""} */}
                       <TypeAnimation
                         sequence={[
                           // Same substring at the start will only be typed out once, initially
@@ -63,6 +73,7 @@ const VMBanner = () => {
                 </Fade>
               </div>
             </div>
+            
           </div>
           <div className="w-full pt-[10%] md:pt-0 md:w-[48%]">
             <div className="p-[10px] vm-no-bxshadow flex items-center justify-center flex-wrap w-full">
