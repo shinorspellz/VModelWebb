@@ -177,12 +177,14 @@ const FaqListing = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                       >
-                        <Typography className={`${dm_sans.className} faq-desc`}>
+                        <Typography className={`${dm_sans.className}`}>
                           {subItem?.title}
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <Typography>{subItem.desc}</Typography>
+                        <Typography className="faq-desc">
+                          {subItem.desc}
+                        </Typography>
                       </AccordionDetails>
                     </Accordion>
                   ))}

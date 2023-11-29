@@ -295,12 +295,16 @@ body {
   }
 
   .no-bord .MuiTypography-root {
-    font-size: 15px !important;
-    line-height: 1.4em !important;
+    font-size: 16px !important;
+    line-height: 1.6em !important;
   }
 
   .no-bord .MuiTypography-root.faq-desc {
     color: #fff !important;
+  }
+
+  .hoverAccord .MuiTypography-root:hover {
+    color: var(--vm-secondary) !important;
   }
 
   .mob-svg svg {
