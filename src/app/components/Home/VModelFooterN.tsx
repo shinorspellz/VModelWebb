@@ -236,7 +236,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                   </div>
                   <div className="relative">
                     <input
-                      className="w-full h-[60px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
+                      className="w-full h-[45px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
                       type="email"
                       style={{
                         background: "rgb(237 206 171 / 50%)",
@@ -244,7 +244,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                       placeholder="Enter your email"
                     />
                     <button
-                      className="absolute right-0 top-0 h-[60px] md:h-[45px] transition-all vm-btn-hover duration-[.3s] px-5 rounded-[60px] vm-text-sec"
+                      className="absolute right-0 top-0 h-[45px] md:h-[45px] transition-all vm-btn-hover duration-[.3s] px-5 rounded-[60px] vm-text-sec"
                       style={{
                         background: "rgb(80 60 59 / 72%)",
                       }}

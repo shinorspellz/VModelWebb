@@ -232,6 +232,11 @@ body {
   justify-content: flex-start;
 }
 
+.vm-accord {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
 @media (max-width: 1024px) {
   .vm-display-md {
     display: block !important;
@@ -287,6 +292,19 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0 !important;
+  }
+
+  .no-bord .MuiTypography-root {
+    font-size: 16px !important;
+    line-height: 1.6em !important;
+  }
+
+  .no-bord .MuiTypography-root.faq-desc {
+    color: #fff !important;
+  }
+
+  .hoverAccord .MuiTypography-root:hover {
+    color: var(--vm-secondary) !important;
   }
 
   .mob-svg svg {
@@ -389,5 +407,14 @@ body {
 @media (max-width: 435px) {
   .pr-sm {
     padding-right: 20px !important;
+  }
+
+  .vm-btn-link {
+    display: inline-flex !important;
+    font-size: 15px !important;
+  }
+
+  .vm-btn-link span {
+    font-size: 15px !important;
   }
 }

@@ -182,7 +182,9 @@ const FaqListing = () => {
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                        <Typography>{subItem.desc}</Typography>
+                        <Typography className="faq-desc">
+                          {subItem.desc}
+                        </Typography>
                       </AccordionDetails>
                     </Accordion>
                   ))}
