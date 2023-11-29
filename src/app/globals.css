@@ -388,7 +388,7 @@ body {
 
 @media (min-width: 996px) and (max-width: 1290px) {
   .vm-w-tab {
-    width: 40% !important;
+    width: auto !important;
   }
 }
 

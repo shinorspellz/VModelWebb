@@ -133,7 +133,7 @@ const VMHeader = () => {
                 </div>
               </div>
             </div> */}
-            <div className="w-[84px] vm-w-tab md:w-1/3 min-h-[64px] flex">
+            <div className="w-[84px] vm-w-tab md:w-auto min-h-[64px] flex">
               <div className="vm-hidden-md flex items-center content-center p-[10px] w-full flex-wrap ">
                 <div className="flex flex-col w-full">
                   <nav className="flex">
