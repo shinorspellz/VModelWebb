@@ -77,7 +77,7 @@ body {
   background-color: transparent !important;
 }
 
-.hoverAccord .MuiTypography-root:hover {
+.hoverAccord .MuiTypography-root:not(.faq-desc):hover {
   color: #fff !important;
 }
 
@@ -308,7 +308,7 @@ body {
     color: #fff !important;
   }
 
-  .hoverAccord .MuiTypography-root:hover {
+  .hoverAccord .MuiTypography-root:not(.faq-desc):hover {
     color: var(--vm-secondary) !important;
   }
 
@@ -379,6 +379,9 @@ body {
     right: 30% !important;
     transform: translateX(-40%);
   }
+  .faq-desc {
+    color: #fff !important;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -421,5 +424,11 @@ body {
 
   .vm-btn-link span {
     font-size: 15px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .vm-accord {
+    display: none !important;
   }
 }
