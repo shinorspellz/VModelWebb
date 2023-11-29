@@ -26,7 +26,7 @@ const FaqListing = () => {
         },
         {
           title: "How can I ensure the quality of talent on VModel?",
-          desc: "VModel takes quality seriously. We have a rigorous screening process that evaluates the skills, experience, and portfolio of each creative before they join our platform. Additionally, we encourage user reviews and ratings, enabling you to make informed decisions based on others&rsquo; experiences.",
+          desc: "VModel takes quality seriously. We have a rigorous screening process that evaluates the skills, experience, and portfolio of each creative before they join our platform. Additionally, we encourage user reviews and ratings, enabling you to make informed decisions based on others' experiences.",
         },
         {
           title: "Can I communicate with the talent before booking them?",
@@ -35,16 +35,16 @@ const FaqListing = () => {
         {
           title:
             "Can I leave reviews and feedback for the talent I've worked with?",
-          desc: "Yes, we encourage businesses to leave reviews and provide feedback for the talent they&rsquo;ve collaborated with. Your reviews not only help other businesses make informed decisions but also provide valuable insights to the talent community.",
+          desc: "Yes, we encourage businesses to leave reviews and provide feedback for the talent they've collaborated with. Your reviews not only help other businesses make informed decisions but also provide valuable insights to the talent community.",
         },
         {
           title: "Are there any hidden fees or additional charges on VModel?",
-          desc: "Transparency is a core value at VModel. We strive to provide clear pricing information, and there are no hidden fees or additional charges. The price you see on the talent&rsquo;s profile is the price you pay, plus our commision of 10%.",
+          desc: "Transparency is a core value at VModel. We strive to provide clear pricing information, and there are no hidden fees or additional charges. The price you see on the talent's profile is the price you pay, plus our commision of 10%.",
         },
         {
           title:
             "Can I book talent for both short-term and long-term projects?",
-          desc: "Absolutely! VModel accommodates both short-term and long-term projects. Whether you need talent for a single-day event or an extended campaign, our platform allows you to find the perfect fit for your project&rsquo;s duration.",
+          desc: "Absolutely! VModel accommodates both short-term and long-term projects. Whether you need talent for a single-day event or an extended campaign, our platform allows you to find the perfect fit for your project's duration.",
         },
         {
           title:
@@ -67,7 +67,7 @@ const FaqListing = () => {
       data: [
         {
           title: "How can VModel benefit me as a creative talent?",
-          desc: "VModel provides a platform for talented individuals like you to showcase your skills, gain exposure, and connect with businesses seeking your expertise. It&rsquo;s a great opportunity to expand your portfolio and network within the industry.",
+          desc: "VModel provides a platform for talented individuals like you to showcase your skills, gain exposure, and connect with businesses seeking your expertise. It's a great opportunity to expand your portfolio and network within the industry.",
         },
         {
           title: "What types of creative talent does VModel cater to?",
@@ -79,7 +79,7 @@ const FaqListing = () => {
         },
         {
           title: "Can I set my own rates as a talent on VModel?",
-          desc: "Yes, you have control over setting your rates on VModel. You can consider your experience, demand, and the nature of the project when determining your rates. It&rsquo;s important to strike a balance that reflects your value and aligns with market standards.",
+          desc: "Yes, you have control over setting your rates on VModel. You can consider your experience, demand, and the nature of the project when determining your rates. It's important to strike a balance that reflects your value and aligns with market standards.",
         },
         {
           title: "How does VModel help me secure bookings and collaborations?",
@@ -92,7 +92,7 @@ const FaqListing = () => {
         },
         {
           title: "What if I need to decline a booking request?",
-          desc: "If you need to decline a booking request, it&rsquo;s important to communicate your reasons professionally and promptly. VModel understands that availability and fit are crucial factors, and declining a request that doesn&rsquo;t align with your schedule or expertise is acceptable.",
+          desc: "If you need to decline a booking request, it's important to communicate your reasons professionally and promptly. VModel understands that availability and fit are crucial factors, and declining a request that doesn't align with your schedule or expertise is acceptable.",
         },
         {
           title:
@@ -114,7 +114,7 @@ const FaqListing = () => {
         },
         {
           title: "Can I receive feedback and reviews from clients on VModel?",
-          desc: "Yes, clients have the option to provide feedback and reviews on your VModel profile. Positive reviews will enhance your credibility and attract more opportunities. It&rsquo;s important to deliver exceptional work and maintain professionalism to receive positive feedback.",
+          desc: "Yes, clients have the option to provide feedback and reviews on your VModel profile. Positive reviews will enhance your credibility and attract more opportunities. It's important to deliver exceptional work and maintain professionalism to receive positive feedback.",
         },
         {
           title: "Can I update my availability and schedule on VModel?",
@@ -122,7 +122,7 @@ const FaqListing = () => {
         },
         {
           title: "How can VModel help me grow my career as a creative talent?",
-          desc: "VModel serves as a platform for you to gain exposure, expand your network, and secure exciting opportunities that can propel your career. By leveraging VModel&rsquo;s features, showcasing your talent, and delivering exceptional work, you can attract new clients and take your career to new heights.",
+          desc: "VModel serves as a platform for you to gain exposure, expand your network, and secure exciting opportunities that can propel your career. By leveraging VModel's features, showcasing your talent, and delivering exceptional work, you can attract new clients and take your career to new heights.",
         },
       ],
     },
