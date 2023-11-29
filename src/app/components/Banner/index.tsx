@@ -73,6 +73,7 @@ const VMBanner = () => {
                 </Fade>
               </div>
             </div>
+            
           </div>
           <div className="w-full pt-[10%] md:pt-0 md:w-[48%]">
             <div className="p-[10px] vm-no-bxshadow flex items-center justify-center flex-wrap w-full">
