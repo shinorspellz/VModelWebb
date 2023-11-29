@@ -69,6 +69,7 @@ body {
   font-weight: bold;
   line-height: 58px;
   letter-spacing: var(--vm-lspacing-md);
+  margin-bottom: 40px;
 }
 
 .no-bord .MuiAccordion-root::before {
@@ -200,6 +201,10 @@ body {
   height: 40px;
   width: 40px;
   padding: 0;
+}
+
+.faq-desc {
+  color: #fff !important;
 }
 
 .socialMedia li {
