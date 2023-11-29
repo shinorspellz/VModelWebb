@@ -176,7 +176,7 @@ const VMHeader = () => {
           </div>
         </section>
       </header>
-      <div className="vm-drawer">
+      <div className="vm-drawer vm-bg-n">
         {isSidebarOpen && <SidebarDrawer setDrawerTogg={setIsSidebarOpen} />}
       </div>
     </>

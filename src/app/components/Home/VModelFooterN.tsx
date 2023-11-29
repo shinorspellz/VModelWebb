@@ -192,6 +192,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
   ];
 
   useEffect(() => {
+    setisMobileView(false);
     if (mobile()) {
       setisMobileView(true);
     }
