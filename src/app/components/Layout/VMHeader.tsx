@@ -95,7 +95,7 @@ const VMHeader = () => {
           <div className="max-w-[1600px] pl-3 md:pl-0 py-4 min-h-[10vh]  items-center justify-between flex mx-auto relative">
             <Link href="/">
               <div className="flex  items-center gap-3 md:gap-6">
-                <VMLogo
+                {/* <VMLogo
                   isDark={true}
                   width={65}
                   height={64}
@@ -103,7 +103,14 @@ const VMHeader = () => {
                 />
                 <h1 className="text-2xl md:text-3xl my-3 vm-text-sec font-semibold text-center md:text-left ">
                   VModel
-                </h1>
+                </h1> */}
+                <VMLogo
+                  isFull={true}
+                  isDark={true}
+                  width={200}
+                  height={190}
+                  className="vm-logo-mobile"
+                />
               </div>
             </Link>
             {/* <div className="w-[84px] md:w-1/3">
