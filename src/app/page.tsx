@@ -12,8 +12,8 @@ export default function Home() {
       <VWorks />
       <VBannCT />
       <VFooterN />
-      {/* <CookieConsent/> */}
-      <CookieConsent2/>
+      <CookieConsent/>
+      {/* <CookieConsent2/> */}
     </>
   );
 }

@@ -53,7 +53,7 @@ return (
         </div>
         <div className="flex items-center">
           <button
-            className="p-3 vm-bg text-sm vm-text-sec font-bold text-white uppercase bg-gray-700 whitespace-nowrap"
+            className="p-3 vm-bg-sec text-sm vm-text-primary font-bold text-white uppercase bg-gray-700 whitespace-nowrap"
             onClick={onClick}
           >
             ok
