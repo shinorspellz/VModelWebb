@@ -7,7 +7,7 @@ const VMVision = () => {
   return (
     <>
       <VMContainer autoHeight={false} bgSec={false}>
-        <div className="flex flex-col w-full mx-auto md:items-center md:justify-center md:h-screen relative">
+        <div className="flex flex-col w-full mx-auto md:items-center md:justify-center md:min-h-screen md:py-12 relative">
           <div className="w-full pr-[10%]">
             <h2
               className={`text-sm leading-none vm-text-sec opacity-50 font-semibold mb-4 text-teal ${dm_sans.className}`}
@@ -32,22 +32,22 @@ const VMVision = () => {
             </div>
           </div>
           <div>
-            <div className="grid lg:grid-cols-3 gap-10 mt-16">
-              <div >
-              <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full ">
-                      <Image
-                        src="/assets/images/icons/broken-link-icon.svg"
-                        alt="brokenlink icon"
-                        width={50} // Set the width of your image
-                        height={50} // Set the height of your image
-                         />
+            <div className="grid lg:grid-cols-2 gap-10 mt-16">
+              <div>
+                <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-[.4] border-4 lg:border-8 border-[#edf9e4] rounded-full ">
+                  <Image
+                    src="/assets/images/icons/broken-link-icon.svg"
+                    alt="brokenlink icon"
+                    width={50} // Set the width of your image
+                    height={50} // Set the height of your image
+                  />
                 </span>
                 <h3 className="text-[1.375rem] leading-[1.625rem] font-bold pb-4">
                   <div className="richtext vm-text-sec opacity-70">
                     Break free
                   </div>
                 </h3>
-                <p className="md:text-lg vm-text-sec line-clamp-4">
+                <p className="md:text-lg vm-text-sec line-clamp-6">
                   VModel allows individuals and businesses to break free from
                   the limitations of traditional talent discovery and booking.
                   By providing a platform that revolutionizes the creative
@@ -56,20 +56,20 @@ const VMVision = () => {
                 </p>
               </div>
               <div>
-              <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full ">
-                <Image
-                  src="/assets/images/icons/globe-network-icon.svg"
-                  alt="globe network icon"
-                  width={50} // Set the width of your image
-                  height={50} // Set the height of your image
-                 />
+                <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-[.4] border-4 lg:border-8 border-[#edf9e4] rounded-full ">
+                  <Image
+                    src="/assets/images/icons/globe-network-icon.svg"
+                    alt="globe network icon"
+                    width={50} // Set the width of your image
+                    height={50} // Set the height of your image
+                  />
                 </span>
                 <h3 className="text-[1.375rem] leading-[1.625rem] font-bold pb-4">
                   <div className="richtext vm-text-sec opacity-70">
                     Connect creatively
                   </div>
                 </h3>
-                <p className="md:text-lg vm-text-sec line-clamp-4">
+                <p className="md:text-lg vm-text-sec line-clamp-6">
                   VModel fosters a creative ecosystem where individuals and
                   businesses can connect in innovative and meaningful ways. By
                   leveraging the platform&apos;s capabilities, users can tap
@@ -79,20 +79,20 @@ const VMVision = () => {
                 </p>
               </div>
               <div>
-              <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-10 border-4 lg:border-8 border-[#edf9e4] rounded-full ">
-                <Image
-                  src="/assets/images/icons/binoculars-icon.svg"
-                  alt="binoculars-icon"
-                  width={50}
-                  height={50}
-                />
+                <span className="inline-flex items-center justify-center mb-4 p-1 lg:p-2 bg-gray-50 w-[60px] h-[60px] opacity-[.4] border-4 lg:border-8 border-[#edf9e4] rounded-full ">
+                  <Image
+                    src="/assets/images/icons/binoculars-icon.svg"
+                    alt="binoculars-icon"
+                    width={50}
+                    height={50}
+                  />
                 </span>
                 <h3 className="text-[1.375rem] leading-[1.625rem] font-bold pb-4">
                   <div className="richtext vm-text-sec opacity-70">
                     Discover talent
                   </div>
                 </h3>
-                <p className="md:text-lg vm-text-sec line-clamp-4">
+                <p className="md:text-lg vm-text-sec line-clamp-6">
                   VModel democratizes the creative industry by providing
                   accessible talent discovery. Users can discover exceptional
                   talent that matches their needs, opening doors to new

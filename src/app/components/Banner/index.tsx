@@ -26,7 +26,7 @@ const VMBanner = () => {
               <div className="mb-5 w-full">
                 <div className="text-left">
                   <Fade delay={0} triggerOnce>
-                    <h1 className="min-h-[130px] pr-sm md:min-h-auto vm-h1-text vm-text-sec">
+                    <h1 className="min-h-[130px] line-clamp-4 pr-sm md:min-h-auto vm-h1-text vm-text-sec">
                       Discover, Connect, and Collaborate with{" "}
                       {/* {isMobileView ? <br /> : ""} */}
                       <TypeAnimation
@@ -39,6 +39,14 @@ const VMBanner = () => {
                           "Influencers",
                           1000,
                           "Bookers",
+                          1000,
+                          "Photographers",
+                          1000,
+                          "Chefs",
+                          1000,
+                          "Stylists",
+                          1000,
+                          "Businesses",
                           1000,
                         ]}
                         className="vm-anim-text"
@@ -73,7 +81,6 @@ const VMBanner = () => {
                 </Fade>
               </div>
             </div>
-            
           </div>
           <div className="w-full pt-[10%] md:pt-0 md:w-[48%]">
             <div className="p-[10px] vm-no-bxshadow flex items-center justify-center flex-wrap w-full">
