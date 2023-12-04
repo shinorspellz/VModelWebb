@@ -28,14 +28,14 @@ const FootListItem = ({
           href={url}
           rel="noreferrer"
           target="_blank"
-          className={`${dm_sans.className} font-normal text-base vm-text-sec hover:text-white transition-all duration-[.3s] opacity-100  `}
+          className={`${dm_sans.className} font-normal text-base vm-text-sec hover:text-white transition-all duration-[.3s] opacity-75  `}
         >
           {title}
         </a>
       ) : (
         <Link
           href={url}
-          className={`font-normal text-base vm-text-sec hover:text-white transition-all duration-[.3s] opacity-100  ${dm_sans.className}`}
+          className={`font-normal text-base vm-text-sec hover:text-white transition-all duration-[.3s] opacity-75  ${dm_sans.className}`}
         >
           {title}
         </Link>
