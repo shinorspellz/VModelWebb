@@ -34,41 +34,41 @@ const CookieConsent = () => {
     }
   };
 
-  if (cookieConsentIsTrue) {
-    return null;
-  }
-
   return (
-    <section className="fixed bottom-0 left-0 right-0 w-full py-2 md:py-4">
-      <Slide direction="up" damping={1}>
-        <div className="container mx-auto px-20">
-          <div>
-            <div className="w-72 vm-bg-sec rounded-lg shadow-md p-6">
-              <span className="w-full sm:w-48 block vm-text-primary   mb-3">
-                We use cookies to provide a better user experience.
-              </span>
-              <div className="flex items-center justify-between">
-                <Link
-                  className="text-xs text-white-400 hover:text-gray-800 py-2 px-4 rounded-lg border border-primary"
-                  href="/privacy-policy"
-                >
-                  <span>Privacy Policy</span>
-                </Link>
-                <div className="w-1/2">
-                  <button
-                    type="button"
-                    className="py-1.5 px-4 vm-bg vm-btn-hover  vm-text-sec w-full text-center  font-semibold shadow-md  rounded-lg"
-                    onClick={onClick}
-                  >
-                    Ok
-                  </button>
+    <>
+      {!cookieConsentIsTrue && (
+        <section className="fixed bottom-0 left-0 right-0 w-full py-2 md:py-4">
+          <Slide direction="up" damping={1}>
+            <div className="container relative flex justify-center md:block mx-auto md:px-20">
+              <div>
+                <div className="w-72 vm-bg-sec rounded-lg shadow-md p-6">
+                  <span className="w-full sm:w-48 block vm-text-primary   mb-3">
+                    We use cookies to provide a better user experience.
+                  </span>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      className="text-xs text-white-400 hover:text-gray-800 py-2 px-4 rounded-lg border border-primary"
+                      href="/privacy-policy"
+                    >
+                      <span>Privacy Policy</span>
+                    </Link>
+                    <div className="w-1/2">
+                      <button
+                        type="button"
+                        className="py-1.5 px-4 vm-bg vm-btn-hover  vm-text-sec w-full text-center  font-semibold shadow-md  rounded-lg"
+                        onClick={onClick}
+                      >
+                        Ok
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </Slide>
-    </section>
+          </Slide>
+        </section>
+      )}
+    </>
   );
 };
 
