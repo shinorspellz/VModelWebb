@@ -1,4 +1,5 @@
 import VMBanner from "./components/Banner";
+import CookieConsent from "./components/Banner/CookieConsent";
 import { VBannCT, VFeature, VFooterN, VWhat, VWorks } from "./components/Home";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <VWorks />
       <VBannCT />
       <VFooterN />
+      <CookieConsent/>
     </>
   );
 }
