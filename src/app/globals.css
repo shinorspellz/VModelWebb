@@ -111,7 +111,7 @@ body {
 }
 
 [data-slot="innerWrapper"] [data-slot="value"] {
-  color: #edc5c5 !important;
+  color: var(--vm-secondary) !important;
 }
 
 .vm-btn-hover:hover {
