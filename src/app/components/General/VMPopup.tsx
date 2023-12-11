@@ -64,7 +64,7 @@ const VMPopup = ({
           {(onClose) => (
             <>
               {title && (
-                <ModalHeader className="flex flex-col gap-1 text-white w-[80%] opacity-75">
+                <ModalHeader className="flex flex-col text-center gap-1 text-white opacity-75">
                   {title}
                 </ModalHeader>
               )}

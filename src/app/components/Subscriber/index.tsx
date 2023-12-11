@@ -89,11 +89,7 @@ const Subscriber = ({ onClose, email }: any) => {
   };
 
   return (
-    <VMPopup
-      isClose={onClose}
-      title={`@${removeDomainFromEmail(email)}`}
-      size="md"
-    >
+    <VMPopup isClose={onClose} title={`@${email}`} size="md">
       {isAlert?.isSuccess ? (
         <SuccAlert
           floatType={1}
