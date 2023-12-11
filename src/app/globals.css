@@ -97,9 +97,21 @@ body {
   text-transform: none;
 }
 
+.vm-select [data-slot="label"] {
+  color: #fff !important;
+}
+
+.vm-wrapper-selectitem {
+  background-color: #634e4e !important;
+}
+
 .vm-bg,
 body {
   background-color: var(--vm-primary);
+}
+
+[data-slot="innerWrapper"] [data-slot="value"] {
+  color: #edc5c5 !important;
 }
 
 .vm-btn-hover:hover {

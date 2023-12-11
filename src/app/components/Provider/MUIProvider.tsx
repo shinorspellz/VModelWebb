@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeProvider, createTheme } from "@mui/material";
+import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
 
 const MUIProvider = ({ children }: { children: React.ReactNode }) => {
@@ -15,7 +16,11 @@ const MUIProvider = ({ children }: { children: React.ReactNode }) => {
       },
     },
   });
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <NextUIProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </NextUIProvider>
+  );
 };
 
 export default MUIProvider;

@@ -40,7 +40,7 @@ const CookieConsent = () => {
         <section className="fixed bottom-0 left-0 right-0 w-full py-2 md:py-4">
           <Slide direction="up" damping={1}>
             <div className="container relative flex justify-center md:block mx-auto md:px-20">
-              <div>
+              <div className="md:flex md:justify-end">
                 <div className="w-72 vm-bg-sec rounded-lg shadow-md p-6">
                   <span className="w-full sm:w-48 block vm-text-primary   mb-3">
                     We use cookies to provide a better user experience.

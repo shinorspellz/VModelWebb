@@ -26,7 +26,7 @@ const VMBanner = () => {
               <div className="mb-5 w-full">
                 <div className="text-left">
                   <Fade delay={0} triggerOnce>
-                    <h1 className="min-h-[130px] line-clamp-4 pr-sm md:min-h-auto vm-h1-text vm-text-sec">
+                    <h1 className="min-h-[130px] pr-sm md:min-h-auto vm-h1-text vm-text-sec">
                       Discover, Connect, and Collaborate with{" "}
                       {/* {isMobileView ? <br /> : ""} */}
                       <TypeAnimation
