@@ -12,7 +12,7 @@ export default function Home() {
       <VWorks />
       <VBannCT />
       <VFooterN />
-      <CookieConsent/>
+      <CookieConsent />
       {/* <CookieConsent2/> */}
     </>
   );

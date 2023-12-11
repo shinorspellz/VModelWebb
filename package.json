@@ -11,8 +11,12 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
+    "@nextui-org/react": "^2.2.9",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.16",
     "html-react-parser": "^5.0.6",
     "iconsax-react": "^0.0.8",
     "is-mobile": "^4.0.0",
