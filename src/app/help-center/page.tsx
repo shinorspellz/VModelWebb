@@ -5,7 +5,8 @@ const HelpCenter = () => {
   return (
     <>
       <Iframe
-        url="https://vmodel-faq.vercel.app/portfolio"
+        // url="https://vmodel-faq.vercel.app/portfolio"
+        url="https://v-model-help-centre.vercel.app"
         width="640px"
         height="320px"
         id=""
