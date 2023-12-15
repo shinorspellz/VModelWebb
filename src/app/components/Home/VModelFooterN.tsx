@@ -75,8 +75,13 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
           isExternal: false,
         },
         {
+          title: "Acceptance of use",
+          url: "acceptance",
+          isExternal: false,
+        },
+        {
           title: "Terms of Use",
-          url: "",
+          url: "terms-use",
           isExternal: false,
         },
         {
@@ -194,7 +199,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
   ];
   const [email, setEmail] = useState("");
 
-  const [isOpenSub, setIsOpenSub] = useState(false)
+  const [isOpenSub, setIsOpenSub] = useState(false);
 
   useEffect(() => {
     setisMobileView(false);
@@ -203,20 +208,20 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
     }
   }, [mobile]);
 
-  const _handleChange = (email:string) => {
-    setIsValidEmail(false)
-    setEmail(email)
+  const _handleChange = (email: string) => {
+    setIsValidEmail(false);
+    setEmail(email);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(email)) {
-      setIsValidEmail(true)
+      setIsValidEmail(true);
     }
-  }
+  };
 
   return (
     <>
-    {
-      isOpenSub && <Subscriber email={email} onClose={()=> setIsOpenSub(false)} />
-    }
+      {isOpenSub && (
+        <Subscriber email={email} onClose={() => setIsOpenSub(false)} />
+      )}
       <VMContainer autoHeight={true} bgSec={false}>
         <section
           className={`${!noPadd ? "pt-[2%]" : ""} pb-[6%] vm-bg contain`}
@@ -256,19 +261,24 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                         background: "rgb(237 206 171 / 50%)",
                         color: "#fff",
                       }}
-                      onChange={(e)=> _handleChange(e.target.value)}
+                      onChange={(e) => _handleChange(e.target.value)}
                       placeholder="Enter your email"
                     />
                     <button
-                      className={`absolute right-0 top-0 h-[45px] md:h-[45px] transition-all ${email != "" && isValidEmail && 'vm-btn-hover'} duration-[.3s] px-5 rounded-[60px] vm-text-sec ${email == '' || !isValidEmail ? 'opacity-50 cursor-not-allowed':""}`}
+                      className={`absolute right-0 top-0 h-[45px] md:h-[45px] transition-all ${
+                        email != "" && isValidEmail && "vm-btn-hover"
+                      } duration-[.3s] px-5 rounded-[60px] vm-text-sec ${
+                        email == "" || !isValidEmail
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
                       style={{
                         background: "rgb(80 60 59 / 72%)",
                       }}
                       type="button"
-                      onClick={()=> {
-                        if(!isValidEmail) return;
-                          setIsOpenSub(true);
-                        
+                      onClick={() => {
+                        if (!isValidEmail) return;
+                        setIsOpenSub(true);
                       }}
                     >
                       Continue
