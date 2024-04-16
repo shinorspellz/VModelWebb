@@ -93,6 +93,11 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
           isExternal: false,
         },
         {
+          title: "Human Trafficking Statement",
+          url: "human-trafficking-statement",
+          isExternal: false,
+        },
+        {
           title: "Vell Magazine",
           url: "https://vell-magazine.vercel.app/",
           isExternal: true,
