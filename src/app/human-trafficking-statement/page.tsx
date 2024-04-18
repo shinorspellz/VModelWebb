@@ -15,7 +15,7 @@ const SlaveryPolicy = () => {
       <VMHeader />
     </VMContainer>
       <VMContainer>
-        <iframe style={{width:'100%',height:700}} src="https://github.com/shinorspellz/VModelWebb/blob/main/public/assets/Statement.pdf"></iframe>
+        <iframe style={{width:'100%',height:700}} src="/assets/Statement.pdf"></iframe>
       </VMContainer>
       <VFooterN noPadd={true} />
       </>
