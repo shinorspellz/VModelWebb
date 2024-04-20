@@ -109,7 +109,7 @@ const VModelFeat = () => {
                       <div className="mb-4">
                         <span className="text-sm vm-text-sec">
                           <Slide direction="up" triggerOnce>
-                            <b>Businesses, brands and Bookers</b>
+                            <b>Businesses, Brands and Bookers</b>
                           </Slide>
                         </span>
                       </div>
