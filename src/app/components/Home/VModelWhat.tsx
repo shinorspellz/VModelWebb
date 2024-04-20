@@ -83,7 +83,7 @@ const VModelWhat = () => {
               <div className="text-center mb-5 w-full">
                 <AttentionSeeker effect="tada" triggerOnce>
                   <h2 className={`vm-h2 vm-no-capitalise vm-text-sec`}>
-                    What VModel will do for you{" "}
+                    What will VModel do for you?{" "}
                   </h2>
                 </AttentionSeeker>
               </div>
