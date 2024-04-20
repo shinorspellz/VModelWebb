@@ -10,15 +10,15 @@ const SlaveryPolicy = () => {
 
 
   return (
-
-    <><VMContainer noWrapper={true} autoHeight={true}>
-      <VMHeader />
-    </VMContainer>
+    <>
+      <VMContainer noWrapper={true} autoHeight={true}>
+        <VMHeader />
+      </VMContainer>
       <VMContainer>
-        <iframe style={{width:'100%',height:700}} src="/assets/Statement.pdf"></iframe>
+        <img src="/assets/images/extras/statement.jpg" alt="Privacy Policy" width={1920} height={1080} />
       </VMContainer>
       <VFooterN noPadd={true} />
-      </>
+    </>
   );
 };
 
