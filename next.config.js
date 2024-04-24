@@ -6,6 +6,11 @@ const nextConfig ={
                 source: '/.well-known/assetlinks.json',
                 destination: '/api/AssetLinks',
             },
+            {
+                source: '/.well-known/apple-app-site-association.json',
+                destination: '/api/AppleLinks',
+            }
+            
         ];
     },
 };
