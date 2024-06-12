@@ -168,11 +168,6 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
           isExternal: false,
         },
         {
-          title: "Spotlight",
-          url: "",
-          isExternal: false,
-        },
-        {
           title: "Services",
           url: "",
           isExternal: false,
