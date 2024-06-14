@@ -13,8 +13,9 @@ const HelpCenter = () => {
         const iframe = document.getElementById("helpCenterIframe") as HTMLIFrameElement;
         if (iframe) {
           // Encode the section parameter to handle slashes correctly
-          const encodedSection = encodeURIComponent(section);
-          iframe.src = `https://v-model-help-centre.vercel.app/${encodedSection}`;
+          const split = section.split("/")
+          console.log(split, `https://v-model-help-centre.vercel.app/${split[0]}/${split[1]}`)
+          iframe.src = `https://v-model-help-centre.vercel.app/${split[0]}/${split[1]}`;
         }
       }
     };
