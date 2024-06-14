@@ -1,28 +1,51 @@
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import Iframe from "react-iframe";
 
 const HelpCenter = () => {
+  useEffect(() => {
+    // Function to handle changes in URL parameters
+    const handleParamChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const section = params.get("section");
+
+      if (section) {
+        const iframe = document.getElementById("helpCenterIframe") as HTMLIFrameElement;
+        if (iframe) {
+          iframe.src = `https://v-model-help-centre.vercel.app/${section}`;
+        }
+      }
+    };
+
+    // Call handleParamChange on initial render to handle initial parameters
+    handleParamChange();
+
+    // Listen for changes in URL parameters
+    window.addEventListener("hashchange", handleParamChange);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener("hashchange", handleParamChange);
+    };
+  }, []);
+
   return (
     <>
       <Iframe
-        // url="https://vmodel-faq.vercel.app/portfolio"
         url="https://v-model-help-centre.vercel.app"
-        width="640px"
-        height="320px"
-        id=""
-        className=""
-        loading={"lazy"}
+        width="100%"
+        height="100%"
+        id="helpCenterIframe"
+        loading="lazy"
         allowFullScreen
-        allow="fullscreen"
-        display="block"
         styles={{
           position: "fixed",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
+          border: "none", // Optional: Remove iframe border
         }}
-        position="relative"
       />
     </>
   );
