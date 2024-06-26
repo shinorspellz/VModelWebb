@@ -11,8 +11,18 @@ export async function GET() {
                     ],
                     "paths": [
                         "*"
+                    ],
+                    "components": [
+                        {
+                            "/": "/*"
+                        }
                     ]
                 }
+            ]
+        },
+        "webcredentials": {
+            "apps": [
+                "M2UB5HZSBK.app.vmodel.social"
             ]
         }
     })

@@ -8,8 +8,18 @@
         ],
         "paths": [
           "*"
+        ],
+        "components": [
+          {
+            "/": "/*"
+          }
         ]
       }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "M2UB5HZSBK.app.vmodel.social"
     ]
   }
 }
