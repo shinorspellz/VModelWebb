@@ -106,7 +106,7 @@ const VMHeader = () => {
                 </h1> */}
                 <VMLogo
                   isFull={true}
-                  isDark={true}
+                  isDark={false}
                   width={200}
                   height={190}
                   className="vm-logo-mobile"
