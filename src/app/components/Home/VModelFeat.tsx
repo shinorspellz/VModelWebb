@@ -70,7 +70,7 @@ const VModelFeat = () => {
                 <div className="pt-3">
                   <ul className="vm-list space-y-5 pr-5">
                     {listItem.map((list) => (
-                      <li className="text-primary text-base" key={list.featID}>
+                      <li className="text-white text-base" key={list.featID}>
                         {list.feat}
                       </li>
                     ))}
