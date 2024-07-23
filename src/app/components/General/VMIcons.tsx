@@ -4,9 +4,9 @@ const VMIcons = ({ type }: { type: number }) => {
   return (
     <div
       style={{
-        fill: "#EEEEEE",
-        color: "#EEEEEE",
-        borderColor: "#EEEEEE",
+        fill: "#503c3b",
+        color: "#503c3b",
+        borderColor: "#503c3b",
       }}
     >
       {type == 1 && (

@@ -30,14 +30,14 @@ const FootListItem = ({
           href={url}
           rel="noreferrer"
           target="_blank"
-          className={`${dm_sans.className} font-normal text-base vm-text-sec hover:text-white transition-all duration-[.3s] opacity-75  `}
+          className={`${dm_sans.className} font-normal text-primary vm-text-sec hover:text-secondary transition-all duration-[.3s] `}
         >
           {title}
         </a>
       ) : (
         <Link
           href={url}
-          className={`font-normal text-base vm-text-sec hover:text-white transition-all duration-[.3s] opacity-75  ${dm_sans.className}`}
+          className={`font-normal text-primary vm-text-sec hover:text-secondary transition-all duration-[.3s]   ${dm_sans.className}`}
         >
           {title}
         </Link>
@@ -265,33 +265,33 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
                 <div className="w-full mt-9 md:mt-5 md:pr-[3%]">
                   <div>
                     <h5
-                      className={`vm-text-sec font-medium opacity-40  text-[17px] mb-2 ${dm_sans.className}`}
+                      className={`vm-text-secondary font-medium   text-[17px] mb-2 ${dm_sans.className}`}
                     >
                       Subscribe to our newsletter
                     </h5>
                   </div>
                   <div className="relative">
                     <input
-                      className="w-full h-[45px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
+                      className="w-full bg-primary opacity-100 h-[45px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
                       type="email"
                       style={{
-                        background: "rgb(237 206 171 / 50%)",
+                        background: "",
                         color: "#fff",
                       }}
                       onChange={(e) => _handleChange(e.target.value)}
                       placeholder="Enter your email"
                     />
                     <button
-                      className={`absolute right-0 top-0 h-[45px] md:h-[45px] transition-all ${
+                      className={`border-l absolute right-0 top-0 h-[45px] md:h-[45px] transition-all ${
                         email != "" && isValidEmail && "vm-btn-hover"
-                      } duration-[.3s] px-5 rounded-[60px] vm-text-sec ${
+                      } duration-[.3s] px-5 rounded-[60px] bg-primary  text-white ${
                         email == "" || !isValidEmail
-                          ? "opacity-50 cursor-not-allowed"
+                          ? " cursor-not-allowed"
                           : ""
                       }`}
-                      style={{
-                        background: "rgb(80 60 59 / 72%)",
-                      }}
+                      // style={{
+                      //   background: "rgb(80 60 59 / 72%)",
+                      // }}
                       type="button"
                       onClick={() => {
                         if (!isValidEmail) return;

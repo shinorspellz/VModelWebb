@@ -18,12 +18,12 @@ const ActionButton = ({ icon, title, url }: ActionButton) => {
       <div className="flex space-x-2 items-center">
         <span>
           {icon == "apple" ? (
-            <Apple size="22" color="#fff" variant="Bold" />
+            <Apple size="22" color="#503c3b" variant="Bold" />
           ) : (
-            <GooglePlay size="22" color="#fff" variant="Bold" />
+              <GooglePlay size="22" color="#503c3b" variant="Bold" />
           )}
         </span>
-        <span className={`text-white ${dm_sans.className} text-[18px]`}>
+        <span className={`text-primary ${dm_sans.className} text-[18px]`}>
           {title}
         </span>
       </div>
