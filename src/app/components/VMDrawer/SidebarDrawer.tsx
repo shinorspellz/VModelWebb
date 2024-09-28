@@ -75,7 +75,7 @@ const SidebarDrawer = (props: drawProps) => {
     {
       itemid: 2,
       itemTitle: "For Employees",
-      itemLink: "https://v-model-dash.vercel.app/",
+      itemLink: "/dashboard",
       itemType: 0,
       isExternal: false,
     },

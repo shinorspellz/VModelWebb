@@ -13,7 +13,7 @@ const VModelFooter = ({ noPadd = false }: { noPadd?: boolean }) => {
     },
     {
       title: "For Employees",
-      url: "/",
+      url: "/dashboard",
       external: false,
     },
     {
