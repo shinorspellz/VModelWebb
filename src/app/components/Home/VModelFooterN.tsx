@@ -64,7 +64,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
         },
         {
           title: "For Employees",
-          url: "https://vmodel-steel.vercel.app/",
+          url: "/dashboard",
           isExternal: true,
         },
         {

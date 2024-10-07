@@ -72,7 +72,7 @@ const VMHeader = () => {
     },
     {
       id: 1,
-      url: "https://vmodel-steel.vercel.app/",
+      url: "/dashboard",
       linkText: "For Employees",
       externalLinks: false,
     },
