@@ -52,7 +52,7 @@ const VerifyTokenForm = () => {
             </div>
 
             <p className="mt-6 text-gray-600 mb-6">
-                Didn't receive code?{" "}
+                Didn&apos;t receive code?{" "}
                 <span className="text-primary  font-bold cursor-pointer hover:underline">
                     Resend
                 </span>
