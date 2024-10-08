@@ -20,7 +20,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ onEmailSubmit, 
 
     return (
         <div className="flex flex-col h-full  p-8 lg:p-16">
-            <h2 className="text-3xl font-bold mb-4">Forgot your password?</h2>
+            <h2 className="text-3xl text-primary font-bold mb-4">Forgot your password?</h2>
             <p className="mb-6 text-gray-600">
                 Don&apos;t worry, happens to all of us. Enter your email below to recover your password
             </p>
