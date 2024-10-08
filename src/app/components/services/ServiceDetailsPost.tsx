@@ -52,7 +52,7 @@ const ServiceDetailsPost: React.FC = () => {
             </p>
 
             {/* Read More Button */}
-            <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-500 transition">
+            <button className="px-4 py-3 bg-primary text-white rounded-[10px] ">
                 Read More
             </button>
         </div>

@@ -36,7 +36,7 @@ const JobDetail: React.FC = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col space-y-3 items-center justify-center mt-16">
-          <button className="w-[50%] mb-2 p-2 bg-primary text-white rounded-lg hover:bg-blue-500 transition">
+          <button className="w-[40%] mb-2 p-3 rounded-[10px] bg-primary text-white   transition">
             Apply
           </button>
           

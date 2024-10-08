@@ -30,7 +30,7 @@ const Posts: React.FC = () => {
         </div>
 
         {/* Action Buttons */}
-        <a href="#" className="block text-xl font-semibold mb-6 text-primary text-center hover:underline">Continue on app</a> {/* Improved link styling */}
+        <a href="#" className="block p-3 text-xl font-semibold mb-6 text-primary width-[50%] rounded-[10px] text-center hover:text-white hover:bg-primary transition">Continue on app</a> {/* Improved link styling */}
       </div>
     </div>
   );

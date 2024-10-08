@@ -38,11 +38,11 @@ const JobDetailsPost: React.FC = () => {
 
             {/* Service Description */}
             <p className="text-primary mb-4">
-                This service includes a comprehensive range of features designed to ensure the highest satisfaction.
+                This service includes a comprehensive range of features designed to ensure the highest satisfaction. Designed to ensure the highest satisfaction Get the best experience with our services
             </p>
 
             {/* Read More Button */}
-            <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-500 transition">
+            <button  className="px-4 py-3 bg-primary text-white rounded-md  transition">
                 Read More
             </button>
         </div>

@@ -60,7 +60,7 @@ const VerifyTokenForm = () => {
 
             <button
                 type="submit"
-                className="p-3 bg-primary text-white rounded-lg hover:bg-indigo-500 transition"
+                className="p-3 md:w-[80%] rounded-[10px] bg-primary text-white  hover:bg-indigo-500 transition"
             >
                 Verify
             </button>

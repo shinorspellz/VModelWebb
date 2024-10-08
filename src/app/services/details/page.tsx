@@ -9,7 +9,7 @@ const ServiceDetail: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen bg-white">
       <div className="w-full max-w-5xl p-6 bg-white"> {/* Increased max-width */}
         {/* Title */}
-        <h4 className="text-xl font-600 mb-6 text-primary text-center">Details</h4>
+        <h4 className="text-xl font-bold mb-6 text-primary text-center">Details</h4>
 
         {/* Two Containers in a Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"> {/* Increased gap between containers */}
@@ -34,10 +34,10 @@ const ServiceDetail: React.FC = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col space-y-3 items-center justify-center mt-16">
-          <button className="w-[50%] mb-2 p-2 bg-primary text-white rounded-lg hover:bg-blue-500 transition">
+          <button className="w-[50%] mb-2 py-3 bg-primary text-white rounded-[10px]  transition">
             Book Now
           </button>
-          <button className="w-[50%] p-2 border-[1.5px] border-primary bg-white font-bold text-primary rounded-lg hover:bg-green-500 transition">
+          <button className="w-[50%] py-3  border-primary bg-white font-bold text-primary hover:text-white rounded-[10px] hover:bg-primary transition">
             Share
           </button>
         </div>
