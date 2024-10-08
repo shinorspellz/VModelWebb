@@ -30,7 +30,7 @@ const VerifyTokenForm = () => {
 
     return (
         <div className="flex flex-col h-full p-8 lg:p-16">
-            <h2 className="text-3xl font-bold mb-4">Verify Code</h2>
+            <h2 className="text-3xl text-primary font-bold mb-4">Verify Code</h2>
             <p className="mb-6 text-gray-600">
                 An authentication code has been sent to your email to your email
             </p>

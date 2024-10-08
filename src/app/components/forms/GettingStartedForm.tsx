@@ -26,7 +26,7 @@ const GettingStartedForm: React.FC = () => {
 
     return (
         <form onSubmit={handleSubmit} className=" flex flex-col p-8 lg:p-16">
-            <h2 className="text-3xl font-bold mb-4">Get Started Now</h2>
+            <h2 className="text-3xl text-primary font-bold mb-4">Get Started Now</h2>
 
             <label htmlFor="userType" className="mb-2 font-medium">
                 Select Account Type
@@ -36,7 +36,7 @@ const GettingStartedForm: React.FC = () => {
                 id="userType"
                 value={formData.userType}
                 onChange={handleChange}
-                className="mb-4 p-2 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
+                className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
             >
                 {userTypes.map((type) => (
                     <option key={type} value={type}>
@@ -51,7 +51,7 @@ const GettingStartedForm: React.FC = () => {
                 
                 value={formData.subCategory}
                 onChange={handleChange}
-                className="mb-6 p-2 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
+                className="mb-6 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
             >
                 <option value="" disabled>Select a subcategory</option>
                 {subCategories.map((category) => (
@@ -63,7 +63,7 @@ const GettingStartedForm: React.FC = () => {
 
             <button
                 type="submit"
-                className="p-2 bg-primary text-white rounded-[10px] hover:bg-indigo-600 transition"
+                className="p-3 bg-primary text-white rounded-[10px] hover:bg-primary transition"
             >
               Continue
             </button>
