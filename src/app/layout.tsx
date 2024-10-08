@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ParallaxPro from "./components/Provider/ParallaxPro";
 import MUIProvider from "./components/Provider/MUIProvider";
+import { ApolloProvider } from "@apollo/client";
+import client from "@/service/apollo-client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MUIProvider>
+         
           <ParallaxPro>{children}</ParallaxPro>
+
         </MUIProvider>
+
       </body>
     </html>
   );

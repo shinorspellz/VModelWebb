@@ -1,26 +1,14 @@
-// apollo-client.ts
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import Cookies from 'js-cookie'; // or your preferred method for managing cookies/local storage
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
-const httpLink = createHttpLink({
-    uri: 'http://localhost:4000/graphql', // Replace with your GraphQL server URL
-});
+let apolloClient: ApolloClient<any> | null = null;
 
-const authLink = setContext((_, { headers }) => {
-    // Get the authentication token from local storage or cookies
-    const token = Cookies.get('token'); // Replace with your method of obtaining the token
-    return {
-        headers: {
-            ...headers,
-            authorization: token ? `Bearer ${token}` : '',
-        },
-    };
-});
-
-const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-});
-
-export default client;
+function createApolloClient() {
+    return new ApolloClient({
+        ssrMode: typeof window === 'undefined', // Disable SSR on the client
+        link: new HttpLink({
+            uri: 'https://uat-api.vmodel.app/graphql', // Replace with your GraphQL endpoint
+            credentials: 'include', // Send cookies if needed
+        }),
+        cache: new InMemoryCache(),
+    });
+}
