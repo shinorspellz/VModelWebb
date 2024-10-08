@@ -42,6 +42,10 @@ export const REGISTER_USER_MUTATION = gql`
       isBusinessAccount: $isBusinessAccount
       password1: $password1
       password2: $password2
-    ) 
+    ) {
+      id
+      email
+      username
+    }
   }
 `;
