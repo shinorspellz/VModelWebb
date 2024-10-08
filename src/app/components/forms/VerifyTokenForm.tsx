@@ -46,7 +46,7 @@ const VerifyTokenForm = () => {
                         ref={(el) => (inputRefs.current[index] = el)}
                         onChange={(e) => handleTokenChange(e, index)}
                         onKeyDown={(e) => handleBackspace(e, index)}
-                        className="w-12 h-12 text-center p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-12 h-12 text-center p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                 ))}
             </div>
