@@ -23,9 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MUIProvider>
-         
           <ParallaxPro>{children}</ParallaxPro>
-
         </MUIProvider>
 
       </body>
