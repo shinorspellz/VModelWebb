@@ -11,7 +11,7 @@ Built with the latest technologies & beautiful icons:
 
 ## Author
 
-Daniel Dabiri (Frontend Wizard)
+
 
 ## Deploy on Vercel
 
