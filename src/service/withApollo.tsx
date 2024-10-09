@@ -1,3 +1,4 @@
+'use client'
 import { ApolloClient, InMemoryCache, HttpLink, ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import { NextPage } from 'next';
 import { useMemo } from 'react';
