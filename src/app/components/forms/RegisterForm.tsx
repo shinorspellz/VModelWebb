@@ -72,7 +72,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             >
                 {loading ? 'Registering...' : 'Register'}
             </button>
-            {error && <p className="text-red-500">Error: {error.message}</p>}
+            {error && <p className="text-red-500">Error: {JSON.stringify(error)}</p>}
         </form>
     );
 };

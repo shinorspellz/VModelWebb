@@ -13,39 +13,16 @@ export const GET_USERS = gql`
 
 
 export const REGISTER_USER_MUTATION = gql`
-  mutation RegisterUser(
-    $label: String
-    $displayName: String
-    $dob: Date
-    $use2fa: Boolean
-    $useGoogleAuthenticator: Boolean
-    $email: String!
-    $username: String!
-    $firstName: String!
-    $lastName: String!
-    $userType: String!
-    $isBusinessAccount: Boolean!
-    $password1: String!
-    $password2: String!
-  ) {
-    registerUser(
-      label: $label
-      displayName: $displayName
-      dob: $dob
-      use2fa: $use2fa
-      useGoogleAuthenticator: $useGoogleAuthenticator
-      email: $email
-      username: $username
-      firstName: $firstName
-      lastName: $lastName
-      userType: $userType
-      isBusinessAccount: $isBusinessAccount
-      password1: $password1
-      password2: $password2
-    ) {
-      id
-      email
-      username
-    }
+  mutation Register($email: String!, $username: String!, $firstName: String!, $lastName: String!, $userType: String!, $isBusinessAccount: Boolean!,$label:String!, $password1: String!, $password2: String!) {
+  register(email: $email, username: $username, firstName: $firstName, lastName: $lastName, userType: $userType, label:$label,isBusinessAccount: $isBusinessAccount, password1: $password1, password2: $password2) {
+    success
+    errors
+    token
+    pk
+    id
+    restToken
   }
+}
 `;
+
+
