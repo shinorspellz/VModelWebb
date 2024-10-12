@@ -24,7 +24,7 @@ const Posts: React.FC = () => {
           </div>
 
           {/* Right Container */}
-          <div className="border-t border-r border-b border-primary  overflow-hidden"> {/* Ensure it takes full width */}
+          <div className="border-t border-r border-b border-l md:border-l[] border-primary  overflow-hidden"> {/* Ensure it takes full width */}
             <CommentsComponent />
           </div>
         </div>
