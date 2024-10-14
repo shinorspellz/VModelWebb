@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Sample data for service images
 const serviceImages = [
     { id: 1, src: '/assets/images/vmodel-app-ui/vm-phone-1.png', alt: 'Service 1' },
     { id: 2, src: '/assets/images/vmodel-app-ui/vm-phone-1.png', alt: 'Service 2' },
-   
 ];
 
-const ServiceDetailsPost: React.FC = () => {
+interface ServiceDetailsPostProps {
+    data: any;
+}
+
+const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const descriptionLimit = 100; // Limit the description to 100 characters
+
+    const handleReadMore = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    // Extract the first line as a subtitle from description and remove '**'
+    const [sub, ...restDescription] = data.description.split('\n');
+    const cleanSub = sub.replace(/\*\*/g, ''); // Remove '**' from subtitle
+    const cleanDescription = data.description.replace(/\*\*/g, ''); // Remove '**' from description
+
+    const displayedDescription = isExpanded
+        ? cleanDescription
+        : `${cleanDescription.slice(0, descriptionLimit)}${cleanDescription.length > descriptionLimit ? '...' : ''}`;
+
     return (
         <div className="flex flex-col p-6 bg-white rounded-lg">
             {/* Service Images Selection with horizontal scroll */}
-            <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
+          { data.pinnedServices.length!=0&& <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
                 {serviceImages.map((service) => (
                     <div
                         key={service.id}
@@ -20,18 +39,18 @@ const ServiceDetailsPost: React.FC = () => {
                         <img src={service.src} alt={service.alt} className="w-full h-full object-cover" />
                     </div>
                 ))}
-            </div>
+            </div>}
 
             {/* User Profile */}
             <div className="flex items-center mb-4">
                 <img
-                    src="/assets/images/vmodel-app-ui/vm-phone-11.jpg" // Replace with actual user image
+                    src={data.user.profilePictureUrl} // Replace with actual user image
                     alt="User Profile"
                     className="w-12 h-12 rounded-full border border-gray-300 mr-3"
                 />
                 <div className="flex flex-col">
-                    <p className="font-semibold">John Doe</p>
-                    <p className="text-gray-400">San Francisco, CA</p>
+                    <p className="font-semibold">{data?.user?.username}</p>
+                    <p className="text-gray-400">{data?.user?.location?.locationName}</p>
                 </div>
                 {/* Ratings Section */}
                 <div className="flex items-center ml-auto">
@@ -41,20 +60,22 @@ const ServiceDetailsPost: React.FC = () => {
             </div>
 
             {/* Service Title */}
-            <h2 className="text-xl text-primary font-bold mb-2">Premium Service Package</h2>
+            <h2 className="text-xl text-primary font-bold mb-2">{data.title}</h2>
 
             {/* Service Subtitle */}
-            <h3 className="text-md font-medium text-primary  text-gray-700 mb-2">Get the best experience with our services</h3>
+            <h3 className="text-md font-medium text-primary text-gray-700 mb-2">{cleanSub}</h3>
 
             {/* Service Description */}
             <p className="text-primary mb-4">
-                This service includes a comprehensive range of features designed to ensure the highest satisfaction.
+                {displayedDescription}
             </p>
 
-            {/* Read More Button */}
-            <button className="px-4 py-3 bg-primary text-white rounded-[10px] ">
-                Read More
-            </button>
+            {/* Read More / Show Less Button */}
+            {cleanDescription.length > descriptionLimit && (
+                <button onClick={handleReadMore} className="px-4 py-3 bg-primary text-white rounded-[10px]">
+                    {isExpanded ? 'Show Less' : 'Read More'}
+                </button>
+            )}
         </div>
     );
 };
