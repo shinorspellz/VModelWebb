@@ -8,9 +8,9 @@ import VerifyTokenForm from "@/app/components/forms/VerifyTokenForm";
 const ForgotPassword = () => {
   const [email, setEmail] = React.useState("");
   const [emailSubmitted, setEmailSubmitted] = React.useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(null);
+  const [success, setSuccess] = useState('');
   // Handle form submission
   const handleEmailSubmit = async() => {
     console.log('yes')

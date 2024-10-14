@@ -29,7 +29,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     placeholder="First Name"
                 className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.firstName && errors.firstName.map((msg, index) => (
+                {errors.firstName && errors.firstName.map((msg:any, index:any) => (
                     <p key={index}>{msg}</p> // Display each message as a separate paragraph
                 ))}
 
@@ -41,7 +41,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     placeholder="Last Name"
                 className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.lasttName && errors.lasttName.map((msg, index) => (
+                {errors.lasttName && errors.lasttName.map((msg:any, index:any) => (
                     <p key={index}>{msg}</p> // Display each message as a separate paragraph
                 ))}
                 <input
@@ -52,7 +52,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     placeholder="Email"
                 className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.email && errors.email.map((msg, index) => (
+                {errors.email && errors.email.map((msg:any, index:any) => (
                     <p key={index}>{msg}</p> // Display each message as a separate paragraph
                 ))}
                 <input
@@ -63,7 +63,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     placeholder="Username"
                 className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.username && errors.username.map((msg, index) => (
+            {errors.username && errors.username.map((msg: any, index: any) => (
                     <p key={index}>{msg}</p> // Display each message as a separate paragraph
                 ))}
                 <input
@@ -74,7 +74,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     placeholder="Password"
                 className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.password1 && errors.password1.map((msg, index) => (
+            {errors.password1 && errors.password1.map((msg: any, index: any) => (
                     <p key={index}>{msg}</p> // Display each message as a separate paragraph
                 ))}
                 <input
@@ -85,7 +85,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     placeholder="Confirm Password"
                 className="mb-4 p-3 border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                {errors.password2 && errors.password2.map((msg, index) => (
+            {errors.password2 && errors.password2.map((msg: any, index: any) => (
                     <p key={index}>{msg}</p> // Display each message as a separate paragraph
                 ))}
                 <button

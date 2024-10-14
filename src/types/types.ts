@@ -1,5 +1,5 @@
 // types.ts
-export type UserType = 'Model' | 'Influencer' | 'Digital Creator' | 'Photographer' | 'Videographer' | 'Pet Model' | 'Stylist' | 'Chef' | 'Cook' | 'Baker' | 'Event Planner' | 'Party Entertainer' | 'Booker' | 'Business';
+export type UserType = string;
 export type SubCategory =  string;
 
 export interface FormData {
