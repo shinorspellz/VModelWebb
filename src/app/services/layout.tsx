@@ -1,27 +1,32 @@
-import { Metadata } from "next/types";
+// src/app/services/layout.tsx
 
-export async function generateMetadata({ params, searchParams }: { params: any, searchParams: URLSearchParams }): Promise<Metadata> {
-  const service_id = searchParams.get("service_id");
+import { Metadata } from 'next';
+
+async function getServiceData(service_id: string): Promise<any | null> {
   const res = await fetch(`/api/services?service_id=${service_id}`);
-  const serviceData = await res.json();
+  if (!res.ok) {
+    throw new Error('Failed to fetch service details');
+  }
+  const data = await res.json();
+  return data?.data?.service || null;
+}
+
+export async function generateMetadata({ params }: { params: { service_id: string } }): Promise<Metadata> {
+  const serviceData = await getServiceData(params.service_id);
 
   return {
-    title: `${serviceData?.title || 'Service Details'} - Deluxe Motorcycle Engineering`,
-    description: serviceData?.description || 'Learn more about our motorcycle engineering services.',
+    title: serviceData?.title || 'Service Details - Deluxe Motorcycle Engineering',
+    description: serviceData?.description || 'Explore the best motorcycle engineering services.',
     openGraph: {
-      title: serviceData?.title || 'Deluxe Motorcycle Engineering',
+      title: serviceData?.title || 'Service Details',
       description: serviceData?.description || 'Check out our top-notch motorcycle services.',
-      url: `https://vmodelapp.com/services?service_id=${service_id}`,
-      images: [serviceData?.user?.profilePictureUrl || '/default-image.png'],
+      images: serviceData?.user?.profilePictureUrl || '/default-image.png',
+      url: `https://vmodelapp.com/services?service_id=${params.service_id}`,
+      type: 'website',
     },
   };
 }
-export default function GettingStarted({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+
+export default function ServicesLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-
-
