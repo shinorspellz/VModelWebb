@@ -76,49 +76,49 @@ const ServiceDetail: React.FC = () => {
   }
 
   return (
+    <><Head>
+      <title>{serviceData?.title || 'Service Details'} - Deluxe Motorcycle Engineering</title>
+      <meta name="description" content={serviceData?.description || 'Learn more about our motorcycle engineering services.'} />
+      <meta property="og:title" content={serviceData?.title || 'Deluxe Motorcycle Engineering Service'} />
+      <meta property="og:description" content={serviceData?.description || 'Check out our top-notch motorcycle services.'} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`https://vmodelapp.com/services?service_id=${service_id}`} />
+      <meta property="og:image" content={serviceData?.user?.profilePictureUrl} /> {/* Add a relevant image URL */}
+      <meta name="robots" content="index, follow" />
+    </Head>
     <div className="flex items-center justify-center min-h-screen bg-white">
-      {/* Add dynamic SEO metadata */}
-      <Head>
-        <title>{serviceData?.title || 'Service Details'} - Deluxe Motorcycle Engineering</title>
-        <meta name="description" content={serviceData?.description || 'Learn more about our motorcycle engineering services.'} />
-        <meta property="og:title" content={serviceData?.title || 'Deluxe Motorcycle Engineering Service'} />
-        <meta property="og:description" content={serviceData?.description || 'Check out our top-notch motorcycle services.'} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://vmodelapp.com/services?service_id=${service_id}`} />
-        <meta property="og:image" content={serviceData?.user?.profilePictureUrl} /> {/* Add a relevant image URL */}
-        <meta name="robots" content="index, follow" />
-      </Head>
+        {/* Add dynamic SEO metadata */}
 
-      <div className="w-full max-w-5xl p-6 bg-white">
-        <h4 className="text-xl font-bold mb-6 text-primary text-center">Details</h4>
+        <div className="w-full max-w-5xl p-6 bg-white">
+          <h4 className="text-xl font-bold mb-6 text-primary text-center">Details</h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="p-4 border border-primary rounded-lg w-full">
-            <ServiceDetailsPost data={serviceData} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="p-4 border border-primary rounded-lg w-full">
+              <ServiceDetailsPost data={serviceData} />
+            </div>
+
+            <div className="p-6 border border-primary rounded-lg w-full">
+              {/* Displaying fetched service data */}
+              <ServiceDetailsSummary label="Content License:" value={"Private"} />
+              <ServiceDetailsSummary label="Pricing:" value={`${serviceData?.price || "0.00"}`} />
+              <ServiceDetailsSummary label="Location:" value={serviceData?.user?.location?.locationName || "Not Available"} />
+              <ServiceDetailsSummary label="Delivery Timeline:" value={serviceData?.deliveryTimeline || "Not Available"} />
+              <ServiceDetailsSummary label="Subcategory:" value={serviceData?.subType?.name || "N/A"} />
+              <ServiceDetailsSummary label="Express Delivery:" value={serviceData?.expressDelivery ? "Available" : "Not Available"} />
+              <ServiceDetailsSummary label="Total:" value={`${(serviceData?.price ?? 0).toFixed(2)}`} />
+            </div>
           </div>
 
-          <div className="p-6 border border-primary rounded-lg w-full">
-            {/* Displaying fetched service data */}
-            <ServiceDetailsSummary label="Content License:" value={"Private"} />
-            <ServiceDetailsSummary label="Pricing:" value={`${serviceData?.price || "0.00"}`} />
-            <ServiceDetailsSummary label="Location:" value={serviceData?.user?.location?.locationName || "Not Available"} />
-            <ServiceDetailsSummary label="Delivery Timeline:" value={serviceData?.deliveryTimeline || "Not Available"} />
-            <ServiceDetailsSummary label="Subcategory:" value={serviceData?.subType?.name || "N/A"} />
-            <ServiceDetailsSummary label="Express Delivery:" value={serviceData?.expressDelivery ? "Available" : "Not Available"} />
-            <ServiceDetailsSummary label="Total:" value={`${(serviceData?.price ?? 0).toFixed(2)}`} />
+          <div className="flex flex-col space-y-3 items-center justify-center mt-16">
+            <button className="md:w-[50%] w-full mb-2 py-3 bg-primary text-white rounded-[10px] transition">
+              Book Now
+            </button>
+            <button className="w-[50%] py-3 border-primary bg-white font-bold text-primary hover:text-white rounded-[10px] hover:bg-primary transition">
+              Share
+            </button>
           </div>
         </div>
-
-        <div className="flex flex-col space-y-3 items-center justify-center mt-16">
-          <button className="md:w-[50%] w-full mb-2 py-3 bg-primary text-white rounded-[10px] transition">
-            Book Now
-          </button>
-          <button className="w-[50%] py-3 border-primary bg-white font-bold text-primary hover:text-white rounded-[10px] hover:bg-primary transition">
-            Share
-          </button>
-        </div>
-      </div>
-    </div>
+      </div></>
   );
 };
 
