@@ -12,13 +12,24 @@ export const GET_USERS = gql`
 `;
 
 
+export  const GET_LOCATIONS = gql`
+  query GetLocations {
+    locations {
+      id
+      name
+      description
+      photo
+    }
+  }
+`;
+
 export const REGISTER_USER_MUTATION = gql`
-  mutation RegisterUser(
-    $label: String
-    $displayName: String
-    $dob: Date
-    $use2fa: Boolean
-    $useGoogleAuthenticator: Boolean
+  mutation Register(
+    $label: String!
+    $displayName: String!
+    $dob: Date!
+    $use2fa: Boolean!
+    $useGoogleAuthenticator: Boolean!
     $email: String!
     $username: String!
     $firstName: String!
@@ -28,7 +39,7 @@ export const REGISTER_USER_MUTATION = gql`
     $password1: String!
     $password2: String!
   ) {
-    registerUser(
+    register(
       label: $label
       displayName: $displayName
       dob: $dob
@@ -43,9 +54,9 @@ export const REGISTER_USER_MUTATION = gql`
       password1: $password1
       password2: $password2
     ) {
-      id
-      email
-      username
+      success
     }
   }
 `;
+
+
