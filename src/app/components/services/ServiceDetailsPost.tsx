@@ -43,7 +43,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                     {data.banner.map((banner: any) => (
                         <div
                             key={banner.thumbnail}
-                            className="w-24 h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
+                            className="w-[100px] h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
                             onClick={() => handleBannerClick(banner.thumbnail)} // Handle click to expand
                         >
                             <img src={banner.thumbnail} alt={banner.thumbnail} className="w-full h-full object-cover" />
@@ -85,24 +85,24 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                     className="w-12 h-12 rounded-full border border-[3px] border-primary mr-3"
                 />
                 <div className="flex flex-col">
-                    <p className="font-semibold">{data?.user?.username}</p>
-                    <p className="text-gray-400">{data?.user?.location?.locationName}</p>
+                    <p className="font-semibold text-[13px] md:text-[16px]">{data?.user?.username}</p>
+                    <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.user?.location?.locationName}</p>
                 </div>
                 {/* Ratings Section */}
                 <div className="flex items-center ml-auto">
-                    <span className="text-yellow-500 mr-1">★</span> {/* You can replace this with star icons */}
-                    <p className="text-gray-500 text-sm">5.0 (39)</p>
+                    <span className="text-yellow-500 mr-1 text-[13px] md:text-[16px]">★</span> {/* You can replace this with star icons */}
+                    <p className="text-gray-500 text-[13px] md:text-[16px]">5.0 (39)</p>
                 </div>
             </div>
 
             {/* Service Title */}
-            <h2 className="text-xl text-primary font-bold mb-2">{data.title}</h2>
+            <h2 className="text-l text-primary font-bold mb-2">{data.title}</h2>
 
             {/* Service Subtitle */}
             <h3 className="text-md font-medium text-primary text-gray-700 mb-2">{cleanSub}</h3>
 
             {/* Service Description */}
-            <div className="text-primary mb-4">
+            <div className="text-primary text-[13px] md:text-[16px] mb-4">
                 {/* Add extra line breaks before and after headings */}
                 <ReactMarkdown
                     components={{
@@ -121,7 +121,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
 
             {/* Read More / Show Less Button */}
             {cleanDescription.length > descriptionLimit && (
-                <button onClick={handleReadMore} className="px-4 py-3 bg-primary text-white rounded-[10px]">
+                <button onClick={handleReadMore} className="px-4 text-[13px] md:text-[16px] py-3 bg-primary text-white rounded-[10px]">
                     {isExpanded ? 'Show Less' : 'Read More'}
                 </button>
             )}

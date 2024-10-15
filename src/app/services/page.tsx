@@ -5,6 +5,9 @@ import { useSearchParams } from 'next/navigation';
 import Head from 'next/head'; // Import for SEO metadata
 import ServiceDetailsPost from '@/app/components/services/ServiceDetailsPost';
 import ServiceDetailsSummary from '@/app/components/services/ServiceDetailsSummary';
+import VMContainer from '../components/Layout/VMContainer';
+import VMHeader from '../components/Layout/VMHeader';
+import { VFooterN } from '../components/Home';
 
 const ServiceDetail: React.FC = () => {
   const searchParams = useSearchParams();
@@ -85,10 +88,12 @@ const ServiceDetail: React.FC = () => {
         <meta property="og:image" content={serviceData?.user?.profilePictureUrl} /> {/* Add a relevant image URL */}
         <meta name="robots" content="index, follow" />
       </Head>
-
-      <div className="flex flex-col items-center justify-center min-h-screen p-6">
-        <div className="w-full max-w-5xl p-6 ">
-          <h4 className="text-xl font-bold mb-6 text-white text-center">Service Details</h4>
+      <VMContainer noWrapper={true} autoHeight={true}>
+        <VMHeader />
+      </VMContainer>
+      <div className="flex flex-col items-center justify-center min-h-screen p-3">
+        <div className="w-full max-w-5xl ">
+          <h4 className="text-l md:text-xl font-bold mb-6 text-white text-center">Service Details</h4>
 
           <div className="flex flex-col md:flex-row md:flex-wrap gap-6 mb-6 items-center justify-center">
             <div className="w-full md:w-1/2   rounded-lg">
@@ -117,6 +122,7 @@ const ServiceDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <VFooterN noPadd={true} />
     </>
   );
 };
