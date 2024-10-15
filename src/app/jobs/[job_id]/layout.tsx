@@ -9,7 +9,6 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // Extract the job id from params (not from searchParams in layout)
   const { job_id } = params;
 
   if (!job_id) {
@@ -20,25 +19,38 @@ export async function generateMetadata(
 
   try {
     // Fetch data from the API
-    const job = await fetch(`/api/jobs?job_id=${job_id}`, {
+    const response = await fetch(`https://www.vmodelapp.com/api/jobs?job_id=${job_id}`, {
       headers: { 'Content-Type': 'application/json' },
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error('Failed to fetch job data');
-      }
-      return res.json();
     });
 
-    // Access metadata based on job data
-    const title = job?.data?.jobWeb?.JobTitle || 'Vmodel Jobs';
+    if (!response.ok) {
+      throw new Error('Failed to fetch job data');
+    }
 
+    const job = await response.json();
+
+    // Access metadata based on job data
+    const jobTitle = job?.data?.jobWeb?.jobTitle || 'Vmodel Jobs';
+    const description = job?.data?.jobWeb?.shortDescription || 'Discover more jobs at Vmodel.';
     const imageUrl = job?.data?.creator?.profilePictureUrl || '/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
-      title,
+      title: jobTitle,
+      description,
       openGraph: {
-        title,
-        description:"Vmodel is great",
+        title: jobTitle,
+        description,
+        images: [
+          {
+            url: imageUrl,
+            alt: jobTitle,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: jobTitle,
+        description,
         images: [imageUrl],
       },
     };
