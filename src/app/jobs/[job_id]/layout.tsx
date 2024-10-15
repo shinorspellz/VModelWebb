@@ -20,7 +20,7 @@ export async function generateMetadata(
 
   try {
     // Fetch data from the API
-    const job = await fetch(`$/api/jobs?job_id=${job_id}`, {
+    const job = await fetch(`/api/jobs?job_id=${job_id}`, {
       headers: { 'Content-Type': 'application/json' },
     }).then((res) => {
       if (!res.ok) {
@@ -31,7 +31,7 @@ export async function generateMetadata(
 
     // Access metadata based on job data
     const title = job?.data?.jobWeb?.JobTitle || 'Vmodel Jobs';
-    
+
     const imageUrl = job?.data?.creator?.profilePictureUrl || '/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
