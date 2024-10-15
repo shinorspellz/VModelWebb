@@ -30,13 +30,13 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
     return (
         <div className="flex flex-col p-6 bg-white rounded-lg">
             {/* Service Images Selection with horizontal scroll */}
-          { data.pinnedServices.length!=0&& <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
-                {serviceImages.map((service) => (
+          { data.banner&& <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
+                {data.banner.map((banner:any) => (
                     <div
-                        key={service.id}
-                        className="w-24 h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary transition"
+                        key={banner.thumbnail}
+                        className="w-24 h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
                     >
-                        <img src={service.src} alt={service.alt} className="w-full h-full object-cover" />
+                        <img src={banner.thumbnail} alt={banner.thumbnail} className="w-full h-full object-cover" />
                     </div>
                 ))}
             </div>}
@@ -46,7 +46,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                 <img
                     src={data.user.profilePictureUrl} // Replace with actual user image
                     alt="User Profile"
-                    className="w-12 h-12 rounded-full border border-gray-300 mr-3"
+                    className="w-12 h-12 rounded-full border border-[3px] border-primary  mr-3"
                 />
                 <div className="flex flex-col">
                     <p className="font-semibold">{data?.user?.username}</p>

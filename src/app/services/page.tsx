@@ -1,10 +1,3 @@
-// export const metadata = {
-//   title: "Getting Started with vmodel",
-//   description:
-//     "Learn more about VModel, our mission and how we are empowering both creatives and businesses to access top-tier talent, fostering meaningful collaborations that know no limits. ",
-// };
-
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -16,6 +9,7 @@ import ServiceDetailsSummary from '@/app/components/services/ServiceDetailsSumma
 const ServiceDetail: React.FC = () => {
   const searchParams = useSearchParams();
   const service_id = searchParams.get("service_id"); // Get service_id from params
+
   interface Service {
     title: string;
     description: string;
@@ -36,7 +30,11 @@ const ServiceDetail: React.FC = () => {
   const [serviceData, setServiceData] = useState<Service | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  console.log(service_id)
+  console.log(service_id);
+
+  const handleClick = () => {
+    window.location.href = `https://www.vmodelapp.com/services?service_id=${service_id}`;
+  };
 
   // Fetch service details from the API
   useEffect(() => {
@@ -47,7 +45,7 @@ const ServiceDetail: React.FC = () => {
           throw new Error('Failed to fetch service details');
         }
         const data = await response.json();
-        console.log(data.data.service)
+        console.log(data.data.service);
 
         setServiceData(data?.data?.service);
         setLoading(false);
@@ -57,7 +55,7 @@ const ServiceDetail: React.FC = () => {
         } else {
           setError('An unknown error occurred');
         }
-        console.log(error)
+        console.log(error);
         setLoading(false);
       }
     };
@@ -76,30 +74,30 @@ const ServiceDetail: React.FC = () => {
   }
 
   return (
-    <><Head>
-      <title>{serviceData?.title || 'Service Details'} - Deluxe Motorcycle Engineering</title>
-      <meta name="description" content={serviceData?.description || 'Learn more about our motorcycle engineering services.'} />
-      <meta property="og:title" content={serviceData?.title || 'Deluxe Motorcycle Engineering Service'} />
-      <meta property="og:description" content={serviceData?.description || 'Check out our top-notch motorcycle services.'} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={`https://vmodelapp.com/services?service_id=${service_id}`} />
-      <meta property="og:image" content={serviceData?.user?.profilePictureUrl} /> {/* Add a relevant image URL */}
-      <meta name="robots" content="index, follow" />
-    </Head>
-    <div className="flex items-center justify-center min-h-screen bg-white">
-        {/* Add dynamic SEO metadata */}
+    <>
+      <Head>
+        <title>{serviceData?.title || 'Service Details'} - Deluxe Motorcycle Engineering</title>
+        <meta name="description" content={serviceData?.description || 'Learn more about our motorcycle engineering services.'} />
+        <meta property="og:title" content={serviceData?.title || 'Deluxe Motorcycle Engineering Service'} />
+        <meta property="og:description" content={serviceData?.description || 'Check out our top-notch motorcycle services.'} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://vmodelapp.com/services?service_id=${service_id}`} />
+        <meta property="og:image" content={serviceData?.user?.profilePictureUrl} /> {/* Add a relevant image URL */}
+        <meta name="robots" content="index, follow" />
+      </Head>
 
+      <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
         <div className="w-full max-w-5xl p-6 bg-white">
           <h4 className="text-xl font-bold mb-6 text-primary text-center">Details</h4>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div className="p-4 border border-primary rounded-lg w-full">
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-6 mb-6 items-center justify-center">
+            <div className="w-full md:w-1/2 p-4 border border-primary rounded-lg">
               <ServiceDetailsPost data={serviceData} />
             </div>
 
-            <div className="p-6 border border-primary rounded-lg w-full">
+            <div className="w-full md:w-1/2 p-6 border border-primary rounded-lg">
               {/* Displaying fetched service data */}
-              <ServiceDetailsSummary label="Content License:" value={"Private"} />
+              <ServiceDetailsSummary label="Content License:" value="Private" />
               <ServiceDetailsSummary label="Pricing:" value={`${serviceData?.price || "0.00"}`} />
               <ServiceDetailsSummary label="Location:" value={serviceData?.user?.location?.locationName || "Not Available"} />
               <ServiceDetailsSummary label="Delivery Timeline:" value={serviceData?.deliveryTimeline || "Not Available"} />
@@ -110,15 +108,16 @@ const ServiceDetail: React.FC = () => {
           </div>
 
           <div className="flex flex-col space-y-3 items-center justify-center mt-16">
-            <button className="md:w-[50%] w-full mb-2 py-3 bg-primary text-white rounded-[10px] transition">
+            <button onClick={handleClick} className="md:w-[50%] w-full mb-2 py-3 bg-primary text-white rounded-[10px] transition">
               Book Now
             </button>
-            <button className="w-[50%] py-3 border-primary bg-white font-bold text-primary hover:text-white rounded-[10px] hover:bg-primary transition">
+            <button onClick={handleClick} className="w-[50%] py-3 border-primary bg-white font-bold text-primary hover:text-white rounded-[10px] hover:bg-primary transition">
               Share
             </button>
           </div>
         </div>
-      </div></>
+      </div>
+    </>
   );
 };
 

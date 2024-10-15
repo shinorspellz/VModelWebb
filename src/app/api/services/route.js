@@ -8,6 +8,9 @@ export async function GET(req) {
     id
     title
     description
+    banner {
+      thumbnail
+    }
     user {
       username
       profilePictureUrl
