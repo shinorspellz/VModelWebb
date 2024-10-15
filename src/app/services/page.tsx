@@ -86,16 +86,16 @@ const ServiceDetail: React.FC = () => {
         <meta name="robots" content="index, follow" />
       </Head>
 
-      <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
-        <div className="w-full max-w-5xl p-6 bg-white">
-          <h4 className="text-xl font-bold mb-6 text-primary text-center">Service Details</h4>
+      <div className="flex flex-col items-center justify-center min-h-screen p-6">
+        <div className="w-full max-w-5xl p-6 ">
+          <h4 className="text-xl font-bold mb-6 text-white text-center">Service Details</h4>
 
           <div className="flex flex-col md:flex-row md:flex-wrap gap-6 mb-6 items-center justify-center">
-            <div className="w-full md:w-1/2 p-4 border border-primary rounded-lg">
+            <div className="w-full md:w-1/2   rounded-lg">
               <ServiceDetailsPost data={serviceData} />
             </div>
 
-            <div className="w-full md:w-1/2 p-6 border border-primary rounded-lg">
+            <div className="w-full md:w-1/2 p-8  bg-white  rounded-lg">
               {/* Displaying fetched service data */}
               <ServiceDetailsSummary label="Content License:" value="Private" />
               <ServiceDetailsSummary label="Pricing:" value={`${serviceData?.price || "0.00"}`} />
@@ -107,11 +107,11 @@ const ServiceDetail: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col space-y-3 items-center justify-center mt-16">
-            <button onClick={handleClick} className="md:w-[50%] w-full mb-2 py-3 bg-primary text-white rounded-[10px] transition">
+          <div className="flex flex-col space-y-3 items-center  justify-center mt-16">
+            <button onClick={handleClick} className="md:w-[50%] w-full mb-2 py-3 bg-white hover:border hover:bg-primary hover:text-white  text-primary rounded-[10px] transition">
               Book Now
             </button>
-            <button onClick={handleClick} className="w-[50%] py-3 border-primary bg-white font-bold text-primary hover:text-white rounded-[10px] hover:bg-primary transition">
+            <button onClick={handleClick} className="w-[50%] py-3 border-primary font-bold text-white hover:text-primary rounded-[10px] hover:bg-white transition">
               Share
             </button>
           </div>
