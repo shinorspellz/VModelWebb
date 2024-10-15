@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-
-// Sample data for service images
-const serviceImages = [
-    { id: 1, src: '/assets/images/vmodel-app-ui/vm-phone-1.png', alt: 'Service 1' },
-    { id: 2, src: '/assets/images/vmodel-app-ui/vm-phone-1.png', alt: 'Service 2' },
-];
+import ReactMarkdown from 'react-markdown'; // For Markdown formatting
 
 interface ServiceDetailsPostProps {
     data: any;
@@ -12,6 +7,7 @@ interface ServiceDetailsPostProps {
 
 const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [selectedBanner, setSelectedBanner] = useState<string | null>(null); // Track the selected banner image
     const descriptionLimit = 100; // Limit the description to 100 characters
 
     const handleReadMore = () => {
@@ -21,32 +17,67 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
     // Extract the first line as a subtitle from description and remove '**'
     const [sub, ...restDescription] = data.description.split('\n');
     const cleanSub = sub.replace(/\*\*/g, ''); // Remove '**' from subtitle
-    const cleanDescription = data.description.replace(/\*\*/g, ''); // Remove '**' from description
+
+    // Prepare cleanDescription for Markdown format
+    const cleanDescription = data.description; // Keep Markdown formatting
 
     const displayedDescription = isExpanded
         ? cleanDescription
         : `${cleanDescription.slice(0, descriptionLimit)}${cleanDescription.length > descriptionLimit ? '...' : ''}`;
 
+    // Handle banner click to show a larger version
+    const handleBannerClick = (bannerSrc: string) => {
+        setSelectedBanner(bannerSrc); // Set the clicked banner as the selected image
+    };
+
+    // Handle modal close
+    const closeModal = () => {
+        setSelectedBanner(null); // Deselect the image when closing the modal
+    };
+
     return (
         <div className="flex flex-col p-6 bg-white rounded-lg">
             {/* Service Images Selection with horizontal scroll */}
-          { data.banner&& <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
-                {data.banner.map((banner:any) => (
-                    <div
-                        key={banner.thumbnail}
-                        className="w-24 h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
-                    >
-                        <img src={banner.thumbnail} alt={banner.thumbnail} className="w-full h-full object-cover" />
+            {data.banner && (
+                <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
+                    {data.banner.map((banner: any) => (
+                        <div
+                            key={banner.thumbnail}
+                            className="w-24 h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
+                            onClick={() => handleBannerClick(banner.thumbnail)} // Handle click to expand
+                        >
+                            <img src={banner.thumbnail} alt={banner.thumbnail} className="w-full h-full object-cover" />
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* Modal for displaying the larger image */}
+            {selectedBanner && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+                    onClick={closeModal} // Close modal when clicking outside the image
+                >
+                    <div className="relative p-4">
+                        {/* Close button */}
+                        <button
+                            className="absolute top-2 right-2 text-white bg-red-500 rounded-full p-2"
+                            onClick={closeModal}
+                        >
+                            ✕
+                        </button>
+                        {/* Enlarged image by 50% */}
+                        <img src={selectedBanner} alt="Expanded banner" className="w-[150%] h-[150%] object-cover" />
                     </div>
-                ))}
-            </div>}
+                </div>
+            )}
 
             {/* User Profile */}
             <div className="flex items-center mb-4">
                 <img
                     src={data.user.profilePictureUrl} // Replace with actual user image
                     alt="User Profile"
-                    className="w-12 h-12 rounded-full border border-[3px] border-primary  mr-3"
+                    className="w-12 h-12 rounded-full border border-[3px] border-primary mr-3"
                 />
                 <div className="flex flex-col">
                     <p className="font-semibold">{data?.user?.username}</p>
@@ -54,7 +85,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                 </div>
                 {/* Ratings Section */}
                 <div className="flex items-center ml-auto">
-                    <span className="text-yellow-500 mr-1">★</span> {/* You can replace these with star icons */}
+                    <span className="text-yellow-500 mr-1">★</span> {/* You can replace this with star icons */}
                     <p className="text-gray-500 text-sm">5.0 (39)</p>
                 </div>
             </div>
@@ -66,9 +97,22 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
             <h3 className="text-md font-medium text-primary text-gray-700 mb-2">{cleanSub}</h3>
 
             {/* Service Description */}
-            <p className="text-primary mb-4">
-                {displayedDescription}
-            </p>
+            <div className="text-primary mb-4">
+                {/* Add extra line breaks before and after headings */}
+                <ReactMarkdown
+                    components={{
+                        h1: ({ node, ...props }) => <h1 className="mt-3 mb-3 " {...props}/>, // Add margin to h1
+                        h2: ({ node, ...props }) => <h2 className="mt-4 mb-4" {...props} />, // Add margin to h2
+                        h3: ({ node, ...props }) => <h3 className="mt-4 mb-4" {...props} />, // Add margin to h3
+                        h4: ({ node, ...props }) => <h4 className="mt-4 mb-4" {...props} />, // Add margin to h4
+                        h5: ({ node, ...props }) => <h4 className="mt-4 mb-4" {...props} />, // Add margin to h4
+                        h6: ({ node, ...props }) => <h4 className="mt-4 mb-4" {...props} />, // Add margin to h4
+
+                    }}
+                >
+                    {displayedDescription}
+                </ReactMarkdown>
+            </div>
 
             {/* Read More / Show Less Button */}
             {cleanDescription.length > descriptionLimit && (
