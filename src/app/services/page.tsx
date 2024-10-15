@@ -66,11 +66,11 @@ const ServiceDetail: React.FC = () => {
   }, [service_id]);
 
   if (loading) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+    return <div className="flex bg-white items-center text-primary justify-center min-h-screen">Loading...</div>;
   }
 
   if (error) {
-    return <div className="flex items-center justify-center min-h-screen text-red-500">{error}</div>;
+    return <div className="flex items-center justify-center min-h-screen text-red-500">No service found. Please try again later</div>;
   }
 
   return (
@@ -88,7 +88,7 @@ const ServiceDetail: React.FC = () => {
 
       <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
         <div className="w-full max-w-5xl p-6 bg-white">
-          <h4 className="text-xl font-bold mb-6 text-primary text-center">Services Details</h4>
+          <h4 className="text-xl font-bold mb-6 text-primary text-center">Service Details</h4>
 
           <div className="flex flex-col md:flex-row md:flex-wrap gap-6 mb-6 items-center justify-center">
             <div className="w-full md:w-1/2 p-4 border border-primary rounded-lg">

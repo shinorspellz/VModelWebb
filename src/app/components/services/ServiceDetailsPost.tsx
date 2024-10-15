@@ -58,19 +58,24 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                     className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
                     onClick={closeModal} // Close modal when clicking outside the image
                 >
-                    <div className="relative p-4">
+                    <div className="relative flex justify-center items-center w-full h-full">
                         {/* Close button */}
                         <button
-                            className="absolute top-2 right-2 text-white bg-red-500 rounded-full p-2"
+                            className="absolute w-[40px] h-[40px] top-4 right-4 text-white bg-primary p-2"
                             onClick={closeModal}
                         >
-                            ✕
+                            x
                         </button>
-                        {/* Enlarged image by 50% */}
-                        <img src={selectedBanner} alt="Expanded banner" className="w-[150%] h-[150%] object-cover" />
+                        {/* Enlarged image by 50% and centered */}
+                        <img
+                            src={selectedBanner}
+                            alt="Expanded banner"
+                            className="max-w-[100%] max-h-[100%] object-contain"
+                        />
                     </div>
                 </div>
             )}
+
 
             {/* User Profile */}
             <div className="flex items-center mb-4">
