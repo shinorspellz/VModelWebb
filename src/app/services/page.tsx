@@ -98,12 +98,12 @@ const ServiceDetail: React.FC = () => {
             <div className="w-full md:w-1/2 p-8  bg-white  rounded-lg">
               {/* Displaying fetched service data */}
               <ServiceDetailsSummary label="Content License:" value="Private" />
-              <ServiceDetailsSummary label="Pricing:" value={`${serviceData?.price || "0.00"}`} />
+              <ServiceDetailsSummary label="Pricing:" value={`£${serviceData?.price || "0.00"}`} />
               <ServiceDetailsSummary label="Location:" value={serviceData?.user?.location?.locationName || "Not Available"} />
               <ServiceDetailsSummary label="Delivery Timeline:" value={serviceData?.deliveryTimeline || "Not Available"} />
               <ServiceDetailsSummary label="Subcategory:" value={serviceData?.subType?.name || "N/A"} />
               <ServiceDetailsSummary label="Express Delivery:" value={serviceData?.expressDelivery ? "Available" : "Not Available"} />
-              <ServiceDetailsSummary label="Total:" value={`${(serviceData?.price ?? 0).toFixed(2)}`} />
+              <ServiceDetailsSummary label="Total:" value={`£${(serviceData?.price ?? 0).toFixed(2)}`} />
             </div>
           </div>
 
