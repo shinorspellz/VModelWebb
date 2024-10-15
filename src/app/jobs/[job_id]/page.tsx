@@ -1,23 +1,22 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation'; // Use `useParams` to get the dynamic route param
 import ServiceDetailsPost from '@/app/components/services/ServiceDetailsPost';
-import JobDetailsPost from '../components/jobs/JobDetailsPost';
-import JobDetailsSummary from '../components/jobs/JobDetailsSummary';
+import JobDetailsPost from '../../components/jobs/JobDetailsPost';
+import ServiceDetailsSummary from '../../components/services/ServiceDetailsSummary';
 
 import Head from 'next/head'; // Import for SEO metadata
-import VMContainer from '../components/Layout/VMContainer';
-import VMHeader from '../components/Layout/VMHeader';
-import { VFooterN } from '../components/Home';
-import { graphqlSync } from 'graphql';
-import ServiceDetailsSummary from '../components/services/ServiceDetailsSummary';
+import VMContainer from '../../components/Layout/VMContainer';
+import VMHeader from '../../components/Layout/VMHeader';
+import { VFooterN } from '../../components/Home';
 
 const JobDetail: React.FC = () => {
-  const searchParams = useSearchParams();
-  const job_id = searchParams.get("job_id"); // Get service_id from params
+  const { job_id } = useParams(); // Get job_id from params
+
   const handleClick = () => {
     window.location.href = `https://www.vmodelapp.com/jobs?job_id=${job_id}`;
   };
+
   const [jobData, setJobData] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -57,8 +56,9 @@ const JobDetail: React.FC = () => {
   if (error) {
     return <div className="flex items-center justify-center min-h-screen text-red-500">No service found. Please try again later</div>;
   }
+
   return (
-     <>
+    <>
       <Head>
         <title>{jobData?.jobTitle || 'Job Details'} - Deluxe Motorcycle Engineering</title>
         <meta name="description" content={jobData?.shortDescription || 'Learn more about our motorcycle engineering services.'} />
@@ -74,40 +74,33 @@ const JobDetail: React.FC = () => {
       </VMContainer>
       <div style={{ borderWidth: 0.1, borderRight: 0, borderLeft: 0 }} className="flex py-10 border-gray-500 flex-col items-center justify-center min-h-screen p-3">
         <div className="w-full max-w-5xl"> {/* Increased max-width */}
-          {/* Title */}
           <h4 className="text-xl font-bold mb-6 text-white text-center">Job Details</h4>
 
-          {/* Two Containers in a Row */}
           <div className="flex flex-col md:flex-row md:flex-wrap gap-6 mb-6 items-center justify-center">
-            {/* Left Container */}
-            <div className="w-full md:w-1/2   rounded-lg">
+            <div className="w-full md:w-1/2 rounded-lg">
               <JobDetailsPost data={jobData} />
             </div>
 
-            {/* Right Container */}
-            <div className="w-full md:w-1/2 p-8  bg-white  rounded-lg">
-              <ServiceDetailsSummary label="Job Category" value={jobData?.category.name??"unavailble"} />
-              <ServiceDetailsSummary label="Looking for a" value={jobData?.talents.join(',') ?? "unavailble"} />
-              <ServiceDetailsSummary label="Job Type" value={jobData?.jobType ?? "unavailble"} />
-              <ServiceDetailsSummary label="Gender:" value={jobData?.preferredGender ?? "unavailble"} />
-              <ServiceDetailsSummary label="Creative Brief:" value={jobData?.Brief??"unavailable"} />
-              <ServiceDetailsSummary label="Multiple applicants:" value={jobData?.acceptMultiple?'Yes': "No"} />
-              <ServiceDetailsSummary label="Price" value={jobData?.priceValue??'unavailable'} />
-
+            <div className="w-full md:w-1/2 p-8 bg-white rounded-lg">
+              <ServiceDetailsSummary label="Job Category" value={jobData?.category.name ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Looking for a" value={jobData?.talents.join(',') ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Job Type" value={jobData?.jobType ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Gender" value={jobData?.preferredGender ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Creative Brief" value={jobData?.Brief ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Multiple applicants" value={jobData?.acceptMultiple ? 'Yes' : 'No'} />
+              <ServiceDetailsSummary label="Price" value={jobData?.priceValue ?? 'unavailable'} />
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-col space-y-3 items-center justify-center mt-16">
-            <button onClick={handleClick} className="font-bold md:w-[50%] w-full mb-2 py-3 bg-white hover:border hover:bg-primary hover:text-white  text-primary rounded-[10px] transition">
+            <button onClick={handleClick} className="font-bold md:w-[50%] w-full mb-2 py-3 bg-white hover:border hover:bg-primary hover:text-white text-primary rounded-[10px] transition">
               Apply
             </button>
-
           </div>
         </div>
       </div>
       <VFooterN noPadd={true} />
-      </>
+    </>
   );
 };
 
