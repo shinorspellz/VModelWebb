@@ -31,6 +31,7 @@ body {
   overflow-x: hidden !important;
 }
 
+
 .vm-h1 {
   font-size: var(--vm-text-lg);
   font-weight: bold;
@@ -306,6 +307,8 @@ body {
     line-height: normal !important;
   }
 }
+
+
 
 @media (max-width: 768px) {
   .vm-h2-ext {
