@@ -114,10 +114,10 @@ const ServiceDetail: React.FC = () => {
           </div>
 
           <div className="flex flex-col space-y-3 items-center  justify-center mt-16">
-            <button onClick={handleClick} className="md:w-[50%] w-full mb-2 py-3 bg-white hover:border hover:bg-primary hover:text-white  text-primary rounded-[10px] transition">
+            <button onClick={handleClick} className="font-bold md:w-[50%] w-full mb-2 py-3 bg-white hover:border hover:bg-primary hover:text-white  text-primary rounded-[10px] transition">
               Book Now
             </button>
-            <button onClick={handleClick} className="w-[50%] py-3 border-primary font-bold text-white hover:text-primary rounded-[10px] hover:bg-white transition">
+            <button onClick={handleClick} className="font-bold md:w-[50%] w-full mb-2 py-3 bg-white hover:border hover:bg-primary hover:text-white  text-primary rounded-[10px] transition">
               Share
             </button>
           </div>
