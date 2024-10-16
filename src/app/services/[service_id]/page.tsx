@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation'; // Use `useParams` to get the dynamic route param
 import Head from 'next/head'; // Import for SEO metadata
 import ServiceDetailsPost from '@/app/components/services/ServiceDetailsPost';
 import ServiceDetailsSummary from '@/app/components/services/ServiceDetailsSummary';
-import VMContainer from '../components/Layout/VMContainer';
-import VMHeader from '../components/Layout/VMHeader';
-import { VFooterN } from '../components/Home';
+import VMContainer from '../../components/Layout/VMContainer';
+import VMHeader from '../../components/Layout/VMHeader';
+import { VFooterN } from '../../components/Home';
 import { graphqlSync } from 'graphql';
 
 const ServiceDetail: React.FC = () => {
-  const searchParams = useSearchParams();
-  const service_id = searchParams.get("service_id"); // Get service_id from params
+
+  const { service_id } = useParams();
 
   interface Service {
     title: string;
@@ -92,7 +92,7 @@ const ServiceDetail: React.FC = () => {
       <VMContainer noWrapper={true} autoHeight={true}>
         <VMHeader />
       </VMContainer>
-      <div style={{ borderWidth:0.1, borderRight:0, borderLeft:0}} className="flex py-10 border-gray-500 flex-col items-center justify-center min-h-screen p-3">
+      <div style={{ borderWidth: 0.1, borderRight: 0, borderLeft: 0 }} className="flex py-10 border-gray-500 flex-col items-center justify-center min-h-screen p-3">
         <div className="w-full max-w-5xl ">
           <h4 className="text-l md:text-xl font-bold mb-6 text-white text-center">Service Details</h4>
 

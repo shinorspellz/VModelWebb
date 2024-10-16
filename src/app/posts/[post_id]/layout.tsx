@@ -1,7 +1,7 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
-  params: { job_id: string }
+  params: { post_id: string }
 }
 
 // The `generateMetadata` function expects only `params` in layout, not `searchParams`
@@ -9,30 +9,30 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { job_id } = params;
+  const { post_id } = params;
 
-  if (!job_id) {
+  if (!post_id) {
     return {
-      title: 'Job Not Found',
+      title: 'Post Not Found',
     };
   }
 
   try {
     // Fetch data from the API
-    const response = await fetch(`https://www.vmodelapp.com/api/jobs?job_id=${job_id}`, {
+    const response = await fetch(`https://www.vmodelapp.com/api/posts?post_id=${post_id}`, {
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch job data');
+      throw new Error('Failed to fetch post data');
     }
 
-    const job = await response.json();
+    const post = await response.json();
 
     // Access metadata based on job data
-    const jobTitle = job?.data?.jobWeb?.jobTitle || 'Vmodel Jobs';
-    const description = job?.data?.jobWeb?.shortDescription || 'Discover more jobs at Vmodel.';
-    const imageUrl = job?.data?.jobWeb?.creator?.profilePictureUrl || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
+    const jobTitle = 'Vmodel Posts';
+    const description =  'Discover more post on Vmodel app.';
+    const imageUrl = post?.data?.postWeb?.media[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
       title: jobTitle,
@@ -62,6 +62,12 @@ export async function generateMetadata(
   }
 }
 
-export default function JobsLayout({ children }: { children: React.ReactNode }) {
+export default function Posts({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }
+
+

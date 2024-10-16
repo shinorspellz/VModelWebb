@@ -20,18 +20,18 @@ const JobDetailsPost: React.FC<JobDetailsPostProp> = ({ data }) => {
     };
 
     // Prepare cleanDescription for Markdown format
-    const cleanDescription = data.shortDescription; // Keep Markdown formatting
+    const cleanDescription = data?.shortDescription; // Keep Markdown formatting
 
     const displayedDescription = isExpanded
         ? cleanDescription
-        : `${cleanDescription.slice(0, descriptionLimit)}${cleanDescription.length > descriptionLimit ? '...' : ''}`;
+        : `${cleanDescription?.slice(0, descriptionLimit)}${cleanDescription?.length > descriptionLimit ? '...' : ''}`;
 
     return (
         <div className="flex flex-col p-6 bg-white rounded-lg">
             {/* User Profile */}
             <div className="flex items-center mb-4">
                 <img
-                    src={data.creator.profilePictureUrl} // Replace with actual user image
+                    src={data?.creator?.profilePictureUrl} // Replace with actual user image
                     alt="User Profile"
                     className="w-12 h-12 rounded-full border border-[3px] border-primary mr-3"
                 />
@@ -66,7 +66,7 @@ const JobDetailsPost: React.FC<JobDetailsPostProp> = ({ data }) => {
             </div>
 
             {/* Read More / Show Less Button */}
-            {cleanDescription.length > descriptionLimit && (
+            {cleanDescription?.length > descriptionLimit && (
                 <button onClick={handleReadMore} className="px-4 text-[13px] my-3 md:text-[16px] py-2 bg-primary text-white rounded-[10px]">
                     {isExpanded ? 'Show Less' : 'Read More'}
                 </button>

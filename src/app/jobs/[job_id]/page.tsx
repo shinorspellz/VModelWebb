@@ -34,12 +34,13 @@ const JobDetail: React.FC = () => {
         setJobData(data?.data?.jobWeb);
         setLoading(false);
       } catch (error) {
+        console.log(error);
         if (error instanceof Error) {
           setError(error.message);
         } else {
           setError('An unknown error occurred');
         }
-        console.log(error);
+      
         setLoading(false);
       }
     };
@@ -59,16 +60,7 @@ const JobDetail: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>{jobData?.jobTitle || 'Job Details'} - Deluxe Motorcycle Engineering</title>
-        <meta name="description" content={jobData?.shortDescription || 'Learn more about our motorcycle engineering services.'} />
-        <meta property="og:title" content={jobData?.jobTitle || 'Deluxe Motorcycle Engineering Service'} />
-        <meta property="og:description" content={jobData?.shortDescription || 'Check out our top-notch motorcycle services.'} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://vmodelapp.com/services?service_id=${job_id}`} />
-        <meta property="og:image" content={jobData?.creator?.profilePictureUrl} /> {/* Add a relevant image URL */}
-        <meta name="robots" content="index, follow" />
-      </Head>
+     
       <VMContainer noWrapper={true} autoHeight={true}>
         <VMHeader />
       </VMContainer>
@@ -82,13 +74,13 @@ const JobDetail: React.FC = () => {
             </div>
 
             <div className="w-full md:w-1/2 p-8 bg-white rounded-lg">
-              <ServiceDetailsSummary label="Job Category" value={jobData?.category.name ?? 'unavailable'} />
-              <ServiceDetailsSummary label="Looking for a" value={jobData?.talents.join(',') ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Job Category" value={jobData?.category?.name ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Looking for a" value={jobData?.talents?.join(',') ?? 'unavailable'} />
               <ServiceDetailsSummary label="Job Type" value={jobData?.jobType ?? 'unavailable'} />
               <ServiceDetailsSummary label="Gender" value={jobData?.preferredGender ?? 'unavailable'} />
               <ServiceDetailsSummary label="Creative Brief" value={jobData?.Brief ?? 'unavailable'} />
               <ServiceDetailsSummary label="Multiple applicants" value={jobData?.acceptMultiple ? 'Yes' : 'No'} />
-              <ServiceDetailsSummary label="Price" value={jobData?.priceValue ?? 'unavailable'} />
+              <ServiceDetailsSummary label="Price" value={`£${jobData?.priceValue}`||'unavailable'}  />
             </div>
           </div>
 

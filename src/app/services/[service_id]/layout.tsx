@@ -1,25 +1,26 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 
+
 type Props = {
-  params: { job_id: string }
+  params: { service_id: string }
 }
 
-// The `generateMetadata` function expects only `params` in layout, not `searchParams`
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { job_id } = params;
+  const { service_id } = params;
 
-  if (!job_id) {
+  if (!service_id) {
     return {
-      title: 'Job Not Found',
+      title: 'Service Not Found',
     };
   }
 
   try {
     // Fetch data from the API
-    const response = await fetch(`https://www.vmodelapp.com/api/jobs?job_id=${job_id}`, {
+    const response = await fetch(`https://www.vmodelapp.com/api/services?service_id=${service_id}`, {
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -30,9 +31,9 @@ export async function generateMetadata(
     const job = await response.json();
 
     // Access metadata based on job data
-    const jobTitle = job?.data?.jobWeb?.jobTitle || 'Vmodel Jobs';
-    const description = job?.data?.jobWeb?.shortDescription || 'Discover more jobs at Vmodel.';
-    const imageUrl = job?.data?.jobWeb?.creator?.profilePictureUrl || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
+    const jobTitle = job?.data?.service?.title || 'Vmodel Services';
+    const description = job?.data?.service?.description || 'Discover more services at Vmodel.';
+    const imageUrl = job?.data?.service?.banner[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
       title: jobTitle,
@@ -57,11 +58,18 @@ export async function generateMetadata(
   } catch (error) {
     console.error('Error fetching job data:', error);
     return {
-      title: 'Job Data Error',
+      title: 'service Data Error',
     };
   }
 }
 
-export default function JobsLayout({ children }: { children: React.ReactNode }) {
+
+export default function GettingStarted({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }
+
+

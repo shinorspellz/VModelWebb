@@ -7,7 +7,7 @@ const commentsData = [
     { id: 3, user: 'Alice Johnson', text: 'Looking forward to using this service!', time: '10:10 AM' },
 ];
 
-const CommentsComponent: React.FC = () => {
+const CommentsComponent: React.FC<any> = ({data}) => {
     const [inputValue, setInputValue] = useState('');
     const [comments, setComments] = useState(commentsData);
 
@@ -25,18 +25,18 @@ const CommentsComponent: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col w-full max-w-md bg-white rounded-lg h-full">
+        <div className="flex flex-col w-full max-w-md bg-white  h-full">
             {/* Header */}
             <div className="flex px-6 pt-3 items-center justify-between mb-4 border-b pb-2">
                 <div className="flex items-center">
                     <img
-                        src="/assets/images/vmodel-app-ui/vm-phone-11.jpg" // Replace with actual user image
+                        src={data.user.profilePictureUrl} // Replace with actual user image
                         alt="User Profile"
-                        className="w-12 h-12 rounded-full border border-gray-300 mr-3"
+                        className="w-12 h-12 rounded-full border border-[3px] border-primary mr-3"
                     />
                     <div className="flex flex-col">
-                        <p className="font-semibold">John Doe</p>
-                        <p className="text-gray-400">San Francisco, CA</p>
+                        <p className="font-semibold text-[13px] md:text-[16px]">{data?.user?.username}</p>
+                        <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.user?.location?.locationName}</p>
                     </div>
                 </div>
                 <button className="text-gray-600 hover:text-primary">
@@ -59,7 +59,7 @@ const CommentsComponent: React.FC = () => {
             {/* Input Area */}
             <div className="flex px-6 pb-3 items-center">
                 <img
-                    src="/assets/images/vmodel-app-ui/vm-phone-11.jpg" // Replace with actual user image
+                    src={data.user.profilePictureUrl} // Replace with actual user image
                     alt="User Profile"
                     className="w-10 h-10 rounded-full border border-gray-300 mr-3"
                 />
