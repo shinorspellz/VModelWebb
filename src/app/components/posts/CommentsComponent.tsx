@@ -30,7 +30,7 @@ const CommentsComponent: React.FC<any> = ({data}) => {
             <div className="flex px-6 pt-3 items-center justify-between mb-4 border-b pb-2">
                 <div className="flex items-center">
                     <img
-                        src={data.user.profilePictureUrl} // Replace with actual user image
+                        src={data?.user?.profilePictureUrl} // Replace with actual user image
                         alt="User Profile"
                         className="w-12 h-12 rounded-full border border-[3px] border-primary mr-3"
                     />
@@ -59,7 +59,7 @@ const CommentsComponent: React.FC<any> = ({data}) => {
             {/* Input Area */}
             <div className="flex px-6 pb-3 items-center">
                 <img
-                    src={data.user.profilePictureUrl} // Replace with actual user image
+                    src={data?.user?.profilePictureUrl} // Replace with actual user image
                     alt="User Profile"
                     className="w-10 h-10 rounded-full border border-gray-300 mr-3"
                 />

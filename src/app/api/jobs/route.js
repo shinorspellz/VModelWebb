@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export async function GET(req) {
   const JOB_QUERY = `
-   query JobWeb($jobId: Int!) {
+   query JobWeb($jobId: String!) {
   jobWeb(jobId: $jobId) {
 
     creator {
@@ -55,7 +55,7 @@ export async function GET(req) {
       'https://uat-api.vmodel.app/graphql/',  // your GraphQL endpoint
       {
         query: JOB_QUERY,  // GraphQL query
-        variables: { jobId: parseInt(jobId, 10) },  // Pass the serviceId as a variable, parsed to an integer
+        variables: { jobId: jobId },  // Pass the serviceId as a variable, parsed to an integer
       },
       {
         headers: {

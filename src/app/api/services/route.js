@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export async function GET(req) {
   const SERVICE_QUERY = `
-    query Service($serviceId: Int!) {
-  service(serviceId: $serviceId) {
+    query Service($serviceId: String!) {
+  serviceWeb(serviceId: $serviceId) {
     id
     title
     description
@@ -59,7 +59,7 @@ export async function GET(req) {
       'https://uat-api.vmodel.app/graphql/',  // your GraphQL endpoint
       {
         query: SERVICE_QUERY,  // GraphQL query
-        variables: { serviceId: parseInt(serviceId, 10) },  // Pass the serviceId as a variable, parsed to an integer
+        variables: { serviceId: serviceId},  // Pass the serviceId as a variable, parsed to an integer
       },
       {
         headers: {

@@ -2,7 +2,7 @@ import type { Metadata, ResolvingMetadata } from 'next'
 
 
 type Props = {
-  params: { service_id: string }
+  params: { coupon_id: string }
 }
 
 
@@ -10,17 +10,18 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { service_id } = params;
+  const { coupon_id } = params;
 
-  if (!service_id) {
+  if (!coupon_id) {
     return {
-      title: 'Service Not Found',
+      title: 'Coupon Not Found',
+      description:'Discover more coupons on Vmodel app'
     };
   }
 
   try {
     // Fetch data from the API
-    const response = await fetch(`https://www.vmodelapp.com/api/services?service_id=${service_id}`, {
+    const response = await fetch(`https://www.vmodelapp.com/api/coupons?coupon_id=${coupon_id}`, {
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -28,12 +29,12 @@ export async function generateMetadata(
       throw new Error('Failed to fetch job data');
     }
 
-    const job = await response.json();
+    const coupon = await response.json();
 
     // Access metadata based on job data
-    const jobTitle = job?.data?.serviceWeb?.title || 'Vmodel Services';
-    const description = job?.data?.serviceWeb?.description || 'Discover more services at Vmodel.';
-    const imageUrl = job?.data?.serviceWeb?.banner[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
+    const jobTitle = coupon?.data?.couponWeb?.title || 'Vmodel Coupons';
+    const description = coupon?.data?.couponWeb?.description || 'Discover more coupons on Vmodel app';
+    const imageUrl = coupon?.data?.couponWeb?.owner.profilePictureUrl || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
       title: jobTitle,
@@ -58,13 +59,13 @@ export async function generateMetadata(
   } catch (error) {
     console.error('Error fetching job data:', error);
     return {
-      title: 'service Data Error',
+      title: 'coupon Data Error',
     };
   }
 }
 
 
-export default function GettingStarted({
+export default function Coupon({
   children,
 }: {
   children: React.ReactNode;

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export async function GET(req) {
     const POST_QUERY = `
-  query PostWeb($postId: Int!) {
+  query PostWeb($postId: String!) {
   postWeb(postId: $postId) {
      id
 
@@ -40,7 +40,7 @@ export async function GET(req) {
             'https://uat-api.vmodel.app/graphql/',
             {
                 query: POST_QUERY,
-                variables: { postId: parseInt(postId, 10) },
+                variables: { postId: postId },
             },
             {
                 headers: {

@@ -116,10 +116,10 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                 />
                 <div className="flex flex-col">
                     <p className="font-semibold text-[13px] md:text-[16px]">{data?.user?.username}</p>
-                    <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.user?.location?.locationName}</p>
+                    <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.user?.location?.locationName||'Worldwide'}</p>
                 </div>
                 {/* Ratings Section */}
-                <div className="flex items-center ml-auto">
+                <div className="flex self-start items-center ml-auto">
                     <span className="text-yellow-500 mr-1 text-[13px] md:text-[16px]">★</span> {/* You can replace this with star icons */}
                     <p className="text-gray-500 text-[13px] md:text-[16px]">5.0 (39)</p>
                 </div>

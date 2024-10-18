@@ -14,7 +14,7 @@ const JobDetail: React.FC = () => {
   const { job_id } = useParams(); // Get job_id from params
 
   const handleClick = () => {
-    window.location.href = `https://www.vmodelapp.com/jobs?job_id=${job_id}`;
+    window.location.assign(`https://www.vmodelapp.com/jobs/${job_id}`);
   };
 
   const [jobData, setJobData] = useState<any | null>(null);
@@ -30,7 +30,9 @@ const JobDetail: React.FC = () => {
         }
         const data = await response.json();
         console.log(data.data.jobWeb);
-
+        if (data.errors){
+          setError('Job not found')
+        }
         setJobData(data?.data?.jobWeb);
         setLoading(false);
       } catch (error) {
@@ -50,12 +52,12 @@ const JobDetail: React.FC = () => {
     }
   }, [job_id]);
 
-  if (loading) {
+  if (!error && loading) {
     return <div className="flex bg-white items-center text-primary justify-center min-h-screen">Loading...</div>;
   }
 
   if (error) {
-    return <div className="flex items-center justify-center min-h-screen text-red-500">No service found. Please try again later</div>;
+    return <div className="flex items-center bg-white justify-center min-h-screen text-red-500">No job found. Please try again later</div>;
   }
 
   return (

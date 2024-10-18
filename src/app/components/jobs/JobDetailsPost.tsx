@@ -40,7 +40,7 @@ const JobDetailsPost: React.FC<JobDetailsPostProp> = ({ data }) => {
                     <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.creator?.location?.locationName}</p>
                 </div>
                 {/* Ratings Section */}
-                <div className="flex items-center ml-auto">
+                <div className="flex self-start items-center ml-auto">
                     <span className="text-yellow-500 mr-1 text-[13px] md:text-[16px]">★</span> {/* You can replace this with star icons */}
                     <p className="text-gray-500 text-[13px] md:text-[16px]">5.0 (39)</p>
                 </div>

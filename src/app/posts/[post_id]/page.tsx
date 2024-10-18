@@ -17,7 +17,7 @@ const Posts: React.FC = () => {
   console.log(post_id);
 
   const handleClick = () => {
-    window.location.href = `https://www.vmodelapp.com/posts?post_id=${post_id}`;
+    window.location.assign(`https://www.vmodelapp.com/posts/${post_id}`);
   };
 
   // Fetch service details from the API
@@ -29,6 +29,11 @@ const Posts: React.FC = () => {
           throw new Error('Failed to fetch service details');
         }
         const data = await response.json();
+        if (data?.errors){
+          setError('Post not found')
+          return
+        }
+
         console.log(data.data.postWeb);
         console.log(data)
         setPostData(data?.data?.postWeb);
@@ -50,22 +55,25 @@ const Posts: React.FC = () => {
     }
   }, [post_id]);
 
-  if (loading) {
+  if (!error && loading) {
     return <div className="flex bg-white items-center text-primary justify-center min-h-screen">Loading...</div>;
   }
 
   if (error) {
-    return <div className="flex items-center justify-center min-h-screen text-red-500">No psot found. Please try again later</div>;
+    return <div className="flex items-center justify-center min-h-screen bg-white text-red-500">No post found. Please try again later</div>;
   }
 
   return (
      <><VMContainer noWrapper={true} autoHeight={true}>
       <VMHeader />
     </VMContainer>
-      <div style={{ borderWidth: 0.1, borderRight: 0, borderLeft: 0 }} className="flex py-10 border-gray-500 flex-col items-center justify-center min-h-screen p-3">
+      <div style={{ borderWidth: 0.1, borderRight: 0, borderLeft: 0 }} className="flex py-10 border-gray-500 flex-col items-center justify-center p-3">
+        <h4 className="text-xl font-bold text-white text-center mb-4">Post Details</h4> {/* Added a title */}
+
+      <div className="w-full max-w-5xl ">
+
         <div className="w-full max-w-4xl p-6 "> {/* Added rounded corners and shadow for better aesthetics */}
           {/* Title */}
-          <h1 className="text-xl font-bold text-white text-center mb-4">Post Details</h1> {/* Added a title */}
 
           {/* Two Containers in a Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 mb-6"> {/* Adjusted gap between containers */}
@@ -90,6 +98,7 @@ const Posts: React.FC = () => {
             Continue on app
             </button>
           </div>        </div>
+          </div>
       </div><VFooterN noPadd={true} /></>
   );
 };

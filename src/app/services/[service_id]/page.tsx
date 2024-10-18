@@ -37,7 +37,7 @@ const ServiceDetail: React.FC = () => {
   console.log(service_id);
 
   const handleClick = () => {
-    window.location.href = `https://www.vmodelapp.com/services?service_id=${service_id}`;
+    window.location.assign(`https://www.vmodelapp.com/services/${service_id}`);
   };
 
   // Fetch service details from the API
@@ -49,9 +49,11 @@ const ServiceDetail: React.FC = () => {
           throw new Error('Failed to fetch service details');
         }
         const data = await response.json();
-        console.log(data.data.service);
+       if(data.errors){
+             setError('No service found')
+       }
 
-        setServiceData(data?.data?.service);
+        setServiceData(data?.data?.serviceWeb);
         setLoading(false);
       } catch (error) {
         if (error instanceof Error) {
@@ -69,26 +71,17 @@ const ServiceDetail: React.FC = () => {
     }
   }, [service_id]);
 
-  if (loading) {
+  if (!error && loading) {
     return <div className="flex bg-white items-center text-primary justify-center min-h-screen">Loading...</div>;
   }
 
   if (error) {
-    return <div className="flex items-center justify-center min-h-screen text-red-500">No service found. Please try again later</div>;
+    return <div className="flex items-center bg-white justify-center min-h-screen text-red-500">No service found. Please try again later</div>;
   }
 
   return (
     <>
-      <Head>
-        <title>{serviceData?.title || 'Service Details'} - Deluxe Motorcycle Engineering</title>
-        <meta name="description" content={serviceData?.description || 'Learn more about our motorcycle engineering services.'} />
-        <meta property="og:title" content={serviceData?.title || 'Deluxe Motorcycle Engineering Service'} />
-        <meta property="og:description" content={serviceData?.description || 'Check out our top-notch motorcycle services.'} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://vmodelapp.com/services?service_id=${service_id}`} />
-        <meta property="og:image" content={serviceData?.user?.profilePictureUrl} /> {/* Add a relevant image URL */}
-        <meta name="robots" content="index, follow" />
-      </Head>
+
       <VMContainer noWrapper={true} autoHeight={true}>
         <VMHeader />
       </VMContainer>
