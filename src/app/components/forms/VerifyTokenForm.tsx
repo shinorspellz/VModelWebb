@@ -7,12 +7,16 @@ const VerifyTokenForm = () => {
     // Handle input change for each token box
     const handleTokenChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const value = e.target.value;
-        if (/^[0-9]$/.test(value)) { // Only allow digits
-            const updatedToken = [...token];
-            updatedToken[index] = value;
+
+        // Update the token state if the input is a single character (digit or letter)
+        const updatedToken = [...token];
+
+        // Allow any alphanumeric character
+        if (/^[A-Za-z0-9]?$/.test(value)) {
+            updatedToken[index] = value.toUpperCase(); // Convert to uppercase if desired
             setToken(updatedToken);
 
-            // Move to the next input
+            // Move to the next input if valid and not the last input
             if (index < inputRefs.current.length - 1 && value) {
                 inputRefs.current[index + 1]?.focus();
             }
