@@ -73,7 +73,13 @@ const CouponDetail: React.FC = () => {
       fetchServiceDetails();
     }
   }, [coupon_id]);
+  if (!error && loading) {
+    return <div className="flex bg-white items-center text-primary justify-center min-h-screen">Loading...</div>;
+  }
 
+  if (error) {
+    return <div className="flex items-center bg-white justify-center min-h-screen text-red-500">No coupon found. Please try again later</div>;
+  }
   return (
     <>
       <VMContainer noWrapper={true} autoHeight={true}>

@@ -11,7 +11,7 @@ export async function GET(req) {
        code
        owner {
          username
-         profilePicture
+          profilePictureUrl
          location {
            locationName
          }
