@@ -37,8 +37,12 @@ const JobDetailsPost: React.FC<JobDetailsPostProp> = ({ data }) => {
                 />
                 <div className="flex flex-col">
                     <p className="font-semibold text-[13px] md:text-[16px]">{data?.creator?.username}</p>
-                    <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.creator?.location?.locationName}</p>
-                </div>
+                    <p
+                        className="text-gray-400 text-[13px] md:text-[16px] truncate max-w-[200px]"
+                        title={data?.creator?.location?.locationName}
+                    >
+{data?.creator?.location?.locationName}
+                    </p>                </div>
                 {/* Ratings Section */}
                 <div className="flex self-start items-center ml-auto">
                     <span className="text-yellow-500 mr-1 text-[13px] md:text-[16px]">★</span> {/* You can replace this with star icons */}

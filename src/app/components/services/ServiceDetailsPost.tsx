@@ -116,7 +116,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                 />
                 <div className="flex flex-col">
                     <p className="font-semibold text-[13px] md:text-[16px]">{data?.user?.username}</p>
-                    <p className="text-gray-400 text-[13px] md:text-[16px]">{data?.user?.location?.locationName||'Worldwide'}</p>
+                    <p title={data?.user?.location?.locationName || 'Worldwide'} className="text-gray-400 truncate max-w-[200px]  text-[13px] md:text-[16px]">{data?.user?.location?.locationName||'Worldwide'}</p>
                 </div>
                 {/* Ratings Section */}
                 <div className="flex self-start items-center ml-auto">

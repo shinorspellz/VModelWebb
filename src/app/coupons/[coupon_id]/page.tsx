@@ -104,7 +104,7 @@ const CouponDetail: React.FC = () => {
                   {/* User Info (Username and Location) */}
                   <div className="flex flex-col">
                     <p className="font-semibold text-[13px] md:text-[16px]">{couponData?.owner?.username}</p>
-                    <p className="text-gray-400 text-[13px] md:text-[16px]">{couponData?.owner?.location?.locationName}</p>
+                    <p className="text-gray-400 truncate max-w-[200px]  text-[13px] md:text-[16px]">{couponData?.owner?.location?.locationName}</p>
                   </div>
 
                   {/* Ratings Section */}

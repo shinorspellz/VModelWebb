@@ -15,7 +15,7 @@ export async function generateMetadata(
   if (!coupon_id) {
     return {
       title: 'Coupon Not Found',
-      description:'Discover more coupons on Vmodel app'
+      description:'Discover more coupons on VModel app'
     };
   }
 
@@ -32,9 +32,9 @@ export async function generateMetadata(
     const coupon = await response.json();
 
     // Access metadata based on job data
-    const jobTitle = coupon?.data?.couponWeb?.title || 'Vmodel Coupons';
-    const description = coupon?.data?.couponWeb?.description || 'Discover more coupons on Vmodel app';
-    const imageUrl = coupon?.data?.couponWeb?.owner.profilePictureUrl || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
+    const jobTitle = coupon?.data?.couponWeb?.title || 'VModel Coupons';
+    const description = coupon?.data?.couponWeb?.description || 'Discover more coupons on VModel app';
+    const imageUrl = 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/coupon_slip.png'; // Fallback image
 
     return {
       title: jobTitle,

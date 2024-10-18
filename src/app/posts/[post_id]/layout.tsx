@@ -30,8 +30,8 @@ export async function generateMetadata(
     const post = await response.json();
 
     // Access metadata based on job data
-    const jobTitle = 'Vmodel Posts';
-    const description =  'Discover more post on Vmodel app.';
+    const jobTitle = 'VModel Posts';
+    const description =  `Post by ${post?.data?.postWeb?.user?.username || 'VModel User'}`;
     const imageUrl = post?.data?.postWeb?.media[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
