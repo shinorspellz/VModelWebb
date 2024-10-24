@@ -9,6 +9,10 @@ export async function GET(req) {
        title
        description
        code
+         reviewStats {
+      noOfReviews
+      rating
+    }
        owner {
          username
           profilePictureUrl

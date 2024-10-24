@@ -3,43 +3,40 @@ import axios from 'axios';
 
 export async function GET(req) {
   const SERVICE_QUERY = `
-    query Service($serviceId: String!) {
+  query ServiceWeb($serviceId: String!) {
   serviceWeb(serviceId: $serviceId) {
     id
-    title
-    description
-    banner {
-      thumbnail
-    }
     user {
       username
       profilePictureUrl
+      profileRing
       location {
         locationName
       }
-      rating
     }
-    serviceLocation
-    createdAt
-    deliveryTimeline
-    expressDelivery
-    price
+    title
+    serviceType {
+      name
+    }
     subType {
       name
-      serviceType {
-         name
-        serviceSet {
-          title
-          description
-          price
-          meta
-
-        }
-      }
     }
-    deliverablesType
-    pinnedServices {
-      coverImageUrl
+    bannerUrl {
+      url
+      thumbnail
+    }
+    price
+    serviceLocation
+    description
+    deliveryTimeline
+    createdAt
+    expressDelivery {
+      delivery
+      price
+    }
+    reviewStats {
+      noOfReviews
+      rating
     }
   }
 }

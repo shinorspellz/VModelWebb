@@ -3,14 +3,13 @@ import axios from 'axios';
 
 export async function GET(req) {
   const JOB_QUERY = `
-   query JobWeb($jobId: String!) {
+      query JobWeb($jobId: String!) {
   jobWeb(jobId: $jobId) {
 
     creator {
       username
       profilePictureUrl
       profileRing
-      rating
       location {
         locationName
       }
@@ -19,7 +18,7 @@ export async function GET(req) {
     jobType
     status
     createdAt
-  preferredGender
+    preferredGender
     shortDescription
     category {
       name
@@ -37,6 +36,10 @@ export async function GET(req) {
     brief
     acceptMultiple
     priceValue
+    reviewStats {
+      noOfReviews
+      rating
+    }
   }
 }
     `;

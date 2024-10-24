@@ -19,13 +19,6 @@ export async function GET(req) {
     media {
       thumbnail
     }
-    commentSet {
-      comment
-      upVotes
-      user {
-        username
-      }
-    }
   }
 }
   `;

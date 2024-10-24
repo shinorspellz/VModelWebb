@@ -29,6 +29,10 @@ const CouponDetail: React.FC = () => {
     subType: {
       name: string;
     };
+    reviewStats: {
+    noOfReviews:string|number;
+    rating: string|number
+  }
     expressDelivery: boolean;
   }
 
@@ -110,7 +114,7 @@ const CouponDetail: React.FC = () => {
                   {/* Ratings Section */}
                   <div className="flex  self-start items-center">
                     <span className="text-yellow-500 mr-1 text-[13px] md:text-[16px]">★</span> {/* Star icon */}
-                    <p className="text-gray-500 text-[13px] md:text-[16px]">5.0 (39)</p>
+                    <p className="text-gray-500 text-[13px] md:text-[16px]">{couponData?.reviewStats?.rating||0} ({couponData?.reviewStats?.noOfReviews||0})</p>
                   </div>
                 </div>
               </div>

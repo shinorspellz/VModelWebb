@@ -56,19 +56,27 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
     return (
         <div className="flex flex-col p-6 bg-white rounded-lg">
             {/* Service Images Selection with horizontal scroll */}
-            {data.banner && (
-                <div className="flex overflow-x-scroll mb-4 space-x-2 p-2 scrollbar-hide">
-                    {data.banner.map((banner: any, index: number) => (
-                        <div
-                            key={banner.thumbnail}
-                            className="w-[100px] h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
-                            onClick={() => handleBannerClick(index)} // Handle click to expand
-                        >
-                            <img src={banner.thumbnail} alt={banner.thumbnail} className="w-full h-full object-cover" />
-                        </div>
-                    ))}
+            {data.bannerUrl && (
+                <div className="flex overflow-x-scroll scrollbar-hide mb-4 space-x-2 p-2">
+                    {/* Creating a larger array of repeated banners for demo */}
+                    {data.bannerUrl.map(
+                        (banner: any, index: number) => (
+                            <div
+                                key={banner.thumbnail}
+                                className="min-w-[100px] h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
+                                onClick={() => handleBannerClick(index)} // Handle click to expand
+                            >
+                                <img
+                                    src={banner.thumbnail}
+                                    alt={banner.thumbnail}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        )
+                    )}
                 </div>
             )}
+
 
             {/* Modal for displaying the larger image */}
             {selectedIndex !== null && (
@@ -86,7 +94,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                         </button>
                         {/* Enlarged image by 50% and centered */}
                         <img
-                            src={data.banner[selectedIndex].thumbnail} // Use selected index to get the current image
+                            src={data.bannerUrl[selectedIndex].thumbnail} // Use selected index to get the current image
                             alt="Expanded banner"
                             className="max-w-[100%] max-h-[100%] object-contain"
                         />
@@ -121,7 +129,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                 {/* Ratings Section */}
                 <div className="flex self-start items-center ml-auto">
                     <span className="text-yellow-500 mr-1 text-[13px] md:text-[16px]">★</span> {/* You can replace this with star icons */}
-                    <p className="text-gray-500 text-[13px] md:text-[16px]">5.0 (39)</p>
+                    <p className="text-gray-500 text-[13px] md:text-[16px]">{data.reviewStats.rating} ({data.reviewStats.noOfReviews})</p>
                 </div>
             </div>
 
