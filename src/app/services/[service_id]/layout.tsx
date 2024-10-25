@@ -33,7 +33,7 @@ export async function generateMetadata(
     // Access metadata based on job data
     const jobTitle = job?.data?.serviceWeb?.title || 'Vmodel Services';
     const description = job?.data?.serviceWeb?.description || 'Discover more services at Vmodel.';
-    const imageUrl = job?.data?.serviceWeb?.banner[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
+    const imageUrl = job?.data?.serviceWeb?.bannerUrl[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
       title: jobTitle,
