@@ -78,7 +78,7 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
                         {data.bannerUrl.map((banner: any, index: number) => (
                             <div
                                 key={banner.thumbnail}
-                                className="max-w-[300px] h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
+                                className="w-[100px] h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
                                 onClick={() => handleBannerClick(index)}
                             >
                                 <img
