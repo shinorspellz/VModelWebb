@@ -29,10 +29,18 @@ export async function generateMetadata(
     }
 
     const job = await response.json();
+    const stripMarkdown = (text:string) => {
+      return text
+        .replace(/[*_~`]/g, '') // Removes **, *, _, ~, ` symbols
+        .replace(/[-+]\s/g, '') // Removes list markers like - or +
+        .replace(/\n+/g, ' ')   // Replaces newlines with spaces
+        .replace(/\\n/g, ' ');  // Handles escaped newlines
+    };
 
+    const rawDescription = job?.data?.serviceWeb?.description || 'Discover more services at Vmodel.';
     // Access metadata based on job data
     const jobTitle = job?.data?.serviceWeb?.title || 'Vmodel Services';
-    const description = job?.data?.serviceWeb?.description || 'Discover more services at Vmodel.';
+    const description = stripMarkdown(rawDescription)
     const imageUrl = job?.data?.serviceWeb?.bannerUrl[0]?.thumbnail || 'https://www.vmodelapp.com/assets/images/vmodel-app-ui/vm-phone-16.jpg'; // Fallback image
 
     return {
