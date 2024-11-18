@@ -6,6 +6,7 @@ export async function GET(req) {
   query ServiceWeb($serviceId: String!) {
   serviceWeb(serviceId: $serviceId) {
     id
+    perks
     user {
       username
       profilePictureUrl

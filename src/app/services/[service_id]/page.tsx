@@ -16,6 +16,7 @@ const ServiceDetail: React.FC = () => {
 
   interface Service {
     title: string;
+    perks: string[];
     description: string;
     price: number;
     user: {
@@ -102,6 +103,16 @@ const ServiceDetail: React.FC = () => {
               <ServiceDetailsSummary label="Delivery Timeline:" value={serviceData?.deliveryTimeline || "Not Available"} />
               <ServiceDetailsSummary label="Subcategory:" value={serviceData?.subType?.name || "N/A"} />
               <ServiceDetailsSummary label="Express Delivery:" value={serviceData?.expressDelivery ? "Available" : "Not Available"} />
+              <ServiceDetailsSummary
+                label="Perks:"
+                value={
+                  serviceData?.perks?.length
+                    ? serviceData.perks.join(', ').length > 50
+                      ? `${serviceData.perks.join(', ').slice(0, 50)}...`
+                      : serviceData.perks.join(', ')
+                    : 'No perks available'
+                }
+              /> 
               <ServiceDetailsSummary label="Total:" value={`£${(serviceData?.price ?? 0).toFixed(2)}`} />
             </div>
           </div>
