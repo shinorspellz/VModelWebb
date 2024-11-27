@@ -92,13 +92,13 @@ const ServiceDetail: React.FC = () => {
 
             <div className="w-full md:w-1/2 p-8 bg-white rounded-lg">
               {/* Displaying fetched service data */}
-              <div className="flex gap-4 overflow-x-auto scrollbar-hide mb-4 ">
+              <div className="flex flex-col gap-1 overflow-x-auto scrollbar-hide mb-4 ">
                 {serviceData?.perks && serviceData.perks.length > 0 ? (
                   [...serviceData.perks].map((perk, index) => (
                     <div key={index} className="font-bold text-primary flex items-center space-x-1 flex-shrink-0">
-                      <span className="text-xl">•</span> {/* Bullet symbol */}
-                      <span>{perk}</span>
-                      <span role="img" aria-label="check">✅</span>
+                      <span className="text-[13px] md:text-[16px]">•</span> {/* Bullet symbol */}
+                      <span className="text-[13px] md:text-[16px]">{perk}</span>
+                      <span className="text-[13px] md:text-[16px]" role="img" aria-label="check">✅</span>
                     </div>
                   ))
                 ) : (
