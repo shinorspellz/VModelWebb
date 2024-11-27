@@ -103,7 +103,7 @@ const ServiceDetail: React.FC = () => {
               <ServiceDetailsSummary label="Delivery Timeline:" value={serviceData?.deliveryTimeline || "Not Available"} />
               <ServiceDetailsSummary label="Subcategory:" value={serviceData?.subType?.name || "N/A"} />
               <ServiceDetailsSummary label="Express Delivery:" value={serviceData?.expressDelivery ? "Available" : "Not Available"} />
-              <ServiceDetailsSummary
+              {/* <ServiceDetailsSummary
                 label="Perks:"
                 value={
                   serviceData?.perks?.length
@@ -112,7 +112,7 @@ const ServiceDetail: React.FC = () => {
                       : serviceData.perks.join(', ')
                     : 'No perks available'
                 }
-              /> 
+              />  */}
               <ServiceDetailsSummary label="Total:" value={`£${(serviceData?.price ?? 0).toFixed(2)}`} />
             </div>
           </div>
