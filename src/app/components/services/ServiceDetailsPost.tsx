@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 interface ServiceDetailsPostProps {
     data: any;
 }
 
 const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(0); // Default to first image
     const descriptionLimit = 200;
 
     const handleReadMore = () => {
@@ -24,27 +24,6 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
 
     const handleBannerClick = (index: number) => {
         setSelectedIndex(index);
-        console.log(index);
-    };
-
-    const closeModal = () => {
-        setSelectedIndex(null);
-    };
-
-    const handleNextImage = (event: React.MouseEvent) => {
-        event.stopPropagation();
-        if (data.bannerUrl && selectedIndex !== null) {
-            const nextIndex = (selectedIndex + 1) % data.bannerUrl.length;
-            setSelectedIndex(nextIndex);
-        }
-    };
-
-    const handlePrevImage = (event: React.MouseEvent) => {
-        event.stopPropagation();
-        if (data.bannerUrl && selectedIndex !== null) {
-            const prevIndex = (selectedIndex - 1 + data.bannerUrl.length) % data.bannerUrl.length;
-            setSelectedIndex(prevIndex);
-        }
     };
 
     const scrollBanner = (scrollOffset: number) => {
@@ -61,79 +40,66 @@ const ServiceDetailsPost: React.FC<ServiceDetailsPostProps> = ({ data }) => {
     return (
         <div className="flex flex-col p-6 bg-white rounded-lg">
             {data.bannerUrl && data.bannerUrl.length > 0 && (
-                <div className="relative">
-                    {data.bannerUrl.length > 2 && (
-                        <button
-                            onClick={() => scrollBanner(-100)}
-                            className="absolute text-primary font-bold left-[-15px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow p-1 z-10"
-                        >
-                            {"<"}
-                        </button>
+                <>
+                    {/* Selected Image Display */}
+                    {selectedIndex !== null && (
+                        <div className="w-full h-[400px] mx-auto mb-4 rounded-lg overflow-hidden border border-gray-300">
+                            <img
+                                src={data.bannerUrl[selectedIndex]?.url}
+                                alt="Selected banner"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     )}
 
-                    <div
-                        id="banner-container"
-                        className="flex overflow-x-scroll scrollbar-hide mb-4 space-x-2 p-2"
-                    >
-                        {data.bannerUrl.map((banner: any, index: number) => (
-                            <div
-                                key={banner.thumbnail}
-                                className="w-[100px] h-24 cursor-pointer rounded-lg overflow-hidden border border-gray-300 hover:border-primary hover:border-[3px] transition"
-                                onClick={() => handleBannerClick(index)}
+                    {/* Thumbnail List */}
+                    <div className="relative">
+                        {data.bannerUrl.length > 2 && (
+                            <button
+                                onClick={() => scrollBanner(-100)}
+                                className="absolute text-primary font-bold left-[-15px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow p-1 z-10"
                             >
-                                <img
-                                    src={banner.thumbnail}
-                                    alt={banner.thumbnail}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        ))}
-                    </div>
+                                   <ChevronLeftIcon className="h-[15px] w-[15px] text-primary" />  
 
-                    {data.bannerUrl.length > 2 && (
-                        <button
-                            onClick={() => scrollBanner(100)}
-                            className="absolute text-primary font-bold right-[-15px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow p-1 z-10"
+                            </button>
+                        )}
+
+                        <div
+                            id="banner-container"
+                            className="flex overflow-x-scroll scrollbar-hide mb-4 space-x-2 p-2"
                         >
-                            {">"}
-                        </button>
-                    )}
-                </div>
+                            {data.bannerUrl.map((banner: any, index: number) => (
+                                <div
+                                    key={banner.thumbnail}
+                                    className={`w-[100px] h-24 cursor-pointer rounded-lg overflow-hidden border ${
+                                        selectedIndex === index
+                                            ? 'border-primary border-[3px]'
+                                            : 'border-gray-300 hover:border-primary hover:border-[3px]'
+                                    } transition`}
+                                    onClick={() => handleBannerClick(index)}
+                                >
+                                    <img
+                                        src={banner.url}
+                                        alt={banner.thumbnail}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
+                        {data.bannerUrl.length > 2 && (
+                            <button
+                                onClick={() => scrollBanner(100)}
+                                className="absolute text-primary font-bold right-[-15px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow p-1 z-10"
+                            >
+                                        <ChevronRightIcon className="h-[15px] w-[15px]  text-primary" />
+                          </button>
+                        )}
+                    </div>
+                </>
             )}
 
-            {selectedIndex !== null && data.bannerUrl && data.bannerUrl.length > 0 && (
-                <div
-                    className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
-                    onClick={closeModal}
-                >
-                    <div className="relative flex justify-center items-center w-full h-full" onClick={(e) => e.stopPropagation()}>
-                        <button
-                            className="absolute w-[40px] rounded-lg h-[40px] top-4 right-4 text-white bg-primary p-2"
-                            onClick={closeModal}
-                        >
-                            x
-                        </button>
-                        <img
-                            src={data.bannerUrl[selectedIndex].thumbnail}
-                            alt="Expanded banner"
-                            className="max-w-[100%] max-h-[100%] object-contain"
-                        />
-                        <button
-                            className="px-4 font-bold hover:bg-primary hover:text-white text-primary absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-                            onClick={handlePrevImage}
-                        >
-                            {"<"}
-                        </button>
-                        <button
-                            className="px-4 font-bold hover:bg-primary hover:text-white text-primary absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-                            onClick={handleNextImage}
-                        >
-                            {">"}
-                        </button>
-                    </div>
-                </div>
-            )}
-
+            {/* Rest of the Component */}
             <div className="flex items-center mb-4">
                 <img
                     src={data.user.profilePictureUrl}
