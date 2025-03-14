@@ -474,7 +474,7 @@ const VModelFooterN = ({ noPadd = false }: { noPadd?: boolean }) => {
           <div className="pt-9 flex items-center justify-center text-center">
             <div className="">
               <p className="text-xs md:text-base text-white opacity-70">
-                © {new Date().getFullYear()} VModel. All rights reserved.
+                © {new Date().getFullYear()} Voltis Labs. All rights reserved.
               </p>
             </div>
           </div>
